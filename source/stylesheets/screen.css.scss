@@ -30,7 +30,7 @@ html, body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   @extend %default-font;
-  background-color: $main-bg;
+  background-color: $body-bg;
   height: 100%;
   -webkit-text-size-adjust: none; /* Never autoresize text */
 }
@@ -73,13 +73,20 @@ html, body {
   // This is the logo at the top of the ToC
   &>img {
     display: block;
-    max-width: 100%;
+    padding: 10px;
+    margin: auto;
+    width: 210px;
+    height: inherit;
+    
   }
 
   &>.search {
     position: relative;
 
     input {
+        &::-webkit-input-placeholder {
+          color: $nav-text;
+        }
       background: $nav-bg;
       border-width: 0 0 1px 0;
       border-color: $search-box-border-color;
@@ -179,7 +186,6 @@ html, body {
   .toc-footer {
     padding: 1em 0;
     margin-top: 1em;
-    border-top: 1px dashed $nav-footer-border-color;
 
     li,a {
       color: $nav-text;
@@ -205,10 +211,11 @@ html, body {
   white-space: nowrap;
   text-overflow: ellipsis;
   text-decoration: none;
-  color: #fff;
+  color: $nav-text;
   transition-property: background;
   transition-timing-function: linear;
   transition-duration: 130ms;
+  background-color: $nav-bg;
 }
 
 // button to show navigation on mobile devices
@@ -253,8 +260,8 @@ html, body {
   margin-left: $nav-width;
   position: relative;
   z-index: 10;
-  background-color: $main-bg;
   min-height: 100%;
+  background-color: $body-bg;
 
   padding-bottom: 1px; // prevent margin overflow
 
@@ -321,6 +328,7 @@ html, body {
   // to place content above the dark box
   position: relative;
   z-index: 30;
+  font-size: 13px;
 
   &:after {
     content: '';
@@ -354,8 +362,7 @@ html, body {
     margin-bottom: $h1-margin-bottom;
     margin-top: 2em;
     border-top: 1px solid #ccc;
-    border-bottom: 1px solid #ccc;
-    background-color: #fdfdfd;
+    background-color: $body-bg;
   }
 
   h1:first-child, div:first-child + h1 {
@@ -422,11 +429,11 @@ html, body {
     }
 
     tr:nth-child(odd)>td {
-      background-color: lighten($main-bg,4.2%);
+      background-color: $body-bg;
     }
 
     tr:nth-child(even)>td {
-      background-color: lighten($main-bg,2.4%);
+      background-color: $body-bg;
     }
   }
 
@@ -448,7 +455,6 @@ html, body {
   }
 
   code {
-    background-color: rgba(0,0,0,0.05);
     padding: 3px;
     border-radius: 3px;
     @extend %break-words;
@@ -467,13 +473,16 @@ html, body {
     margin-bottom: 1.5em;
     background: $aside-notice-bg;
     line-height: 1.6;
+    color: $aside-text;
 
     &.warning {
       background-color: $aside-warning-bg;
+      color: $aside-text;
     }
 
     &.success {
       background-color: $aside-success-bg;
+      color: $aside-text;
     }
   }
 
@@ -538,6 +547,15 @@ html, body {
     padding-top: 2em;
     padding-bottom: 2em;
     padding: 2em $main-padding;
+    position: relative;
+    color: #fff;
+    padding: 2em 28px;
+    margin: 0 2% 0 0;
+    width: 46%;
+    border-radius: 5px;
+    float: right;
+    clear: right;
+    box-sizing: border-box;
   }
 
   blockquote {
