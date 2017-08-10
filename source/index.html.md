@@ -120,7 +120,7 @@ This endpoint retrieves all kittens.
 
 ### HTTP Request
 
-`<span class="method-get">GET</span> http://example.com/api/kittens`
+<span class="method-get">GET</span> `http://example.com/api/kittens`
 
 ### Query Parameters
 
@@ -179,7 +179,7 @@ This endpoint retrieves a specific kitten.
 
 ### HTTP Request
 
-`<span class="method-get">GET</span> http://example.com/kittens/<ID>`
+<span class="method-get">GET</span> `http://example.com/kittens/<ID>`
 
 ### URL Parameters
 
@@ -229,7 +229,7 @@ This endpoint retrieves a specific kitten.
 
 ### HTTP Request
 
-`<span class="method-delete”>DELETE</span> http://example.com/kittens/<ID>`
+<span class="method-delete">DELETE</span> `http://example.com/kittens/<ID>`
 
 ### URL Parameters
 
