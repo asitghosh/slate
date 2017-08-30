@@ -1,7 +1,8 @@
 @charset "utf-8";
-@import 'normalize';
-@import 'variables';
-@import 'icon-font';
+
+@import "normalize";
+@import "variables";
+@import "icon-font";
 
 /*
 Copyright 2008-2013 Concur Technologies, Inc.
@@ -29,82 +30,361 @@ html, body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
   @extend %default-font;
+
   background-color: $body-bg;
   height: 100%;
-  -webkit-text-size-adjust: none; /* Never autoresize text */
-}
+  -webkit-text-size-adjust: none;
 
+  /* Never autoresize text */
+}
 
 ////////////////////////////////////////////////////////////////////////////////
 // CALL TYPES 
 ////////////////////////////////////////////////////////////////////////////////
 
-.method{
-    &-httpget{
-      color: $nav-text;
-      background-color: $call-type-get;
-      padding: 2px 6px 2px 6px;
-      font-weight: 700;
-      border: 1px solid $call-type-get;
-      border-radius: 2px;
+.method {
+  &-httpget {
+    color: $nav-text;
+    background-color: $call-type-get;
+    padding: 2px 6px 2px 6px;
+    font-weight: 700;
+    border: 1px solid $call-type-get;
+    border-radius: 2px;
   }
 
-    &-httpput{
-      color: $nav-text;
-      background-color: $call-type-put;
-      padding: 2px 6px 2px 6px;
-      font-weight: 700;
-      border: 1px solid $call-type-put;
-      border-radius: 2px;
+  &-httpput {
+    color: $nav-text;
+    background-color: $call-type-put;
+    padding: 2px 6px 2px 6px;
+    font-weight: 700;
+    border: 1px solid $call-type-put;
+    border-radius: 2px;
   }
 
-    &-httppost{
-      color: $nav-text;
-      background-color: $call-type-post;
-      padding: 2px 6px 2px 6px;
-      font-weight: 700;
-      border: 1px solid $call-type-post;
-      border-radius: 2px;
+  &-httppost {
+    color: $nav-text;
+    background-color: $call-type-post;
+    padding: 2px 6px 2px 6px;
+    font-weight: 700;
+    border: 1px solid $call-type-post;
+    border-radius: 2px;
   }
 
-    &-httpdelete{
-        color: $nav-text;
-        background-color: $call-type-delete;
-        padding: 2px 6px 2px 6px;
-        font-weight: 700;
-        border: 1px solid $call-type-delete;
-        border-radius: 2px;
+  &-httpdelete {
+    color: $nav-text;
+    background-color: $call-type-delete;
+    padding: 2px 6px 2px 6px;
+    font-weight: 700;
+    border: 1px solid $call-type-delete;
+    border-radius: 2px;
   }
 
-    &-httppatch{
-      color: $nav-text;
-      background-color: $call-type-patch;
-      padding: 2px 6px 2px 6px;
-      font-weight: 700;
-      border: 1px solid $call-type-patch;
-      border-radius: 2px;
+  &-httppatch {
+    color: $nav-text;
+    background-color: $call-type-patch;
+    padding: 2px 6px 2px 6px;
+    font-weight: 700;
+    border: 1px solid $call-type-patch;
+    border-radius: 2px;
   }
 
-    &-httpoptions{
-      color: $nav-text;
-      background-color: $call-type-options;
-      padding: 2px 6px 2px 6px;
-      font-weight: 700;
-      border: 1px solid $call-type-options;
-      border-radius: 2px;
+  &-httpoptions {
+    color: $nav-text;
+    background-color: $call-type-options;
+    padding: 2px 6px 2px 6px;
+    font-weight: 700;
+    border: 1px solid $call-type-options;
+    border-radius: 2px;
   }
 
-    &-httphead{
-      color: $nav-text;
-      background-color: $call-type-head;
-      padding: 2px 6px 2px 6px;
-      font-weight: 700;
-      border: 1px solid $call-type-head;
-      border-radius: 2px;
+  &-httphead {
+    color: $nav-text;
+    background-color: $call-type-head;
+    padding: 2px 6px 2px 6px;
+    font-weight: 700;
+    border: 1px solid $call-type-head;
+    border-radius: 2px;
   }
 }
 
+////////////////////////////////////////////////////////////////////////////////
+// HEADER
+////////////////////////////////////////////////////////////////////////////////
+
+@font-face {
+  font-family: "AauxNext-Regular-Web";
+  src: url("https://s3.amazonaws.com/doc-center/public-fonts/26050D_A_0.eot");
+  src: url("https://s3.amazonaws.com/doc-center/public-fonts/26050D_A_0.eot?#iefix") format("embedded-opentype"), url("https://s3.amazonaws.com/doc-center/public-fonts/26050D_A_0.woff") format("woff"), url("https://s3.amazonaws.com/doc-center/public-fonts/26050D_A_0.ttf") format("truetype");
+}
+
+.header {
+  height: 120px;
+  z-index: 1;
+}
+
+.primary-header {
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  height: 60px;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  background: #eeeeee;
+  border-bottom: 1px solid #dddddd;
+
+  &-left-ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    &-li {
+      height: 60px;
+      padding-left: 12px;
+      padding-right: 12px;
+      margin: auto;
+      color: #a2a2a2;
+
+      &:hover {
+        background: #333;
+      }
+    }
+  }
+
+  &-right-ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+
+    &-li {
+      height: 60px;
+      padding-left: 12px;
+      padding-right: 12px;
+      margin: auto;
+
+      &:hover {
+        background: #333;
+      }
+    }
+  }
+}
+
+.appdirect_dark_logo {
+  width: 40px;
+  height: 40px;
+  margin-top: 12px;
+}
+
+.display_none {
+  display: none;
+}
+
+.appdirect_light_logo {
+  width: 40px;
+  height: 40px;
+  margin-top: 12px;
+}
+
+.both-side-border {
+  border-left: 1px solid #dddddd;
+  border-right: 1px solid #dddddd;
+  padding-left: 14px !important;
+  padding-right: 14px !important;
+}
+
+.right-side-border {
+  border-right: 1px solid #dddddd;
+  padding-left: 14px !important;
+  padding-right: 14px !important;
+}
+
+.header-links {
+  text-decoration: none;
+  font-family: "AauxNext-Regular-Web",Arial,Helvetica,sans-serif;
+  font-size: 14px;
+  color: #a2a2a2;
+  height: 60px;
+  line-height: 60px;
+  display: block;
+
+  &:hover {
+    color: #fff;
+    background-color: #333;
+  }
+}
+
+.subnav {
+  list-style-type: none;
+  padding: 0;
+  border-left: 1px solid #000;
+  border-right: 1px solid #000;
+  background: #333;
+  color: #c2c2c2;
+  text-align: left;
+  position: absolute;
+  width: 240px;
+  left: 65px;
+  top: 60px;
+  z-index: 5;
+
+  & li {
+    border-top: 1px solid #474747;
+    padding-left: 15px;
+    height: 50px;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+  }
+
+  &-links {
+    text-decoration: none;
+    color: #a2a2a2 !important;
+    font-family: "AauxNext-Regular-Web",Arial,Helvetica,sans-serif;
+    margin: 0;
+    display: block;
+    font-size: 14px;
+    margin: 0;
+    height: 50px;
+    line-height: 50px;
+
+    &:hover {
+      color: #fff !important;
+    }
+  }
+}
+
+.secondary-header {
+  display: flex;
+  position: fixed;
+  height: 61px;
+  top: 60px;
+  width: 100%;
+  z-index: 50;
+  background: #eeeeee;
+  border-bottom: 1px solid #dddddd;
+}
+
+.search {
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 5px;
+}
+
+.search input {
+  height: 2em;
+  border: solid 1px #b4b4b4;
+  border-radius: 0px;
+  color: #a9a9a9;
+  font-size: 1em;
+  padding-left: 28px;
+  background-color: #ffffff;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.search:before {
+  position: absolute;
+  top: 24px;
+  left: 22px;
+  color: #a9a9a9;
+
+  @extend %icon-search;
+}
+
+input#input-search:focus {
+  outline: none;
+}
+
+#hide_menu {
+  display: none;
+}
+
+@media only screen and (max-width: 700px) {
+  #hide_menu {
+    display: block;
+    text-decoration: none;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 26.5px;
+    height: 40px;
+    width: 25px;
+    margin-left: auto;
+    color: rgb(162, 162, 162);
+  }
+
+  .primary-header-right-ul-li a {
+    display: flex;
+  }
+
+  .primary-header-right-ul-li a:hover {
+    background-color: #3d3d3d;
+    color: #ffffff;
+  }
+
+  .primary-header-right-ul-li {
+    background-color: #333333;
+    color: #a2a2a2;
+    margin: 0;
+    border-left: none !important;
+    border-right: none !important;
+  }
+
+  .primary-header-right-ul-li:hover {
+    background-color: #3d3d3d;
+    color: #ffffff;
+  }
+
+  .primary-header-right-ul-li:active {
+    background-color: #333333;
+    color: #ffffff;
+  }
+
+  .primary-header-right-ul {
+    list-style: none;
+    padding: 0;
+    flex-direction: column;
+    position: relative;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
+  .active {
+    background-color: #333333;
+    color: #ffffff !important;
+  }
+
+  .top-down-border {
+    border-top: 1px solid #474747;
+    border-bottom: 1px solid #474747;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+
+  .right-side-border {
+    border-bottom: 1px solid #474747;
+  }
+
+  .header-right-div {
+    padding-right: 4.5%;
+  }
+
+  .display_none_mobile_view {
+    display: none;
+  }
+
+  .active_li {
+    color: #fff;
+    background-color: #333;
+  }
+}
 
 ////////////////////////////////////////////////////////////////////////////////
 // TABLE OF CONTENTS
@@ -119,12 +399,11 @@ html, body {
 
 .toc-wrapper {
   transition: left 0.3s ease-in-out;
-
   overflow-y: auto;
   overflow-x: hidden;
   position: fixed;
   z-index: 30;
-  top: 0;
+  top: 120px;
   left: 0;
   bottom: 0;
   width: $nav-width;
@@ -135,6 +414,7 @@ html, body {
   // language selector for mobile devices
   .lang-selector {
     display: none;
+
     a {
       padding-top: 0.5em;
       padding-bottom: 0.5em;
@@ -142,22 +422,22 @@ html, body {
   }
 
   // This is the logo at the top of the ToC
-  &>img {
+  & > img {
     display: block;
     padding: 10px;
     margin: auto;
     width: 170px;
     height: inherit;
-    
   }
 
-  &>.search {
+  & > .search {
     position: relative;
 
     input {
-        &::-webkit-input-placeholder {
-          color: $nav-text;
-        }
+      &::-webkit-input-placeholder {
+        color: $nav-text;
+      }
+
       background: $nav-bg;
       border-width: 0 0 1px 0;
       border-color: $search-box-border-color;
@@ -167,7 +447,9 @@ html, body {
       width: 170px;
       outline: none;
       color: $nav-text;
-      border-radius: 0; /* ios has a default border radius */
+      border-radius: 0;
+
+      /* ios has a default border radius */
     }
 
     &:before {
@@ -175,6 +457,7 @@ html, body {
       top: 17px;
       left: $nav-padding;
       color: $nav-text;
+
       @extend %icon-search;
     }
   }
@@ -193,6 +476,7 @@ html, body {
     transition-duration: 180ms;
     transition-timing-function: ease-in-out;
     background: $nav-subitem-bg;
+
     &.visible {
       height: 30%;
       margin-bottom: 1em;
@@ -217,7 +501,6 @@ html, body {
       }
     }
   }
-
 
   // The Table of Contents is composed of multiple nested
   // unordered lists.  These styles remove the default
@@ -263,7 +546,7 @@ html, body {
     padding: 1em 0;
     margin-top: 1em;
 
-    li,a {
+    li, a {
       color: $nav-text;
       text-decoration: none;
     }
@@ -298,14 +581,21 @@ html, body {
 #nav-button {
   span {
     display: block;
+    position: relative;
+    top: 122px;
+
     $side-pad: $main-padding / 2 - 8px;
+
     padding: $side-pad $side-pad $side-pad;
     background-color: rgba($main-bg, 0.7);
     transform-origin: 0 0;
     transform: rotate(-90deg) translate(-100%, 0);
     border-radius: 0 0 0 5px;
   }
-  padding: 0 1.5em 5em 0; // increase touch size area
+
+  padding: 0 1.5em 5em 0;
+
+  // increase touch size area
   display: none;
   position: fixed;
   top: 0;
@@ -316,6 +606,7 @@ html, body {
   font-weight: bold;
   opacity: 0.7;
   line-height: 16px;
+
   img {
     height: 16px;
     vertical-align: bottom;
@@ -323,10 +614,14 @@ html, body {
 
   transition: left 0.3s ease-in-out;
 
-  &:hover { opacity: 1; }
-  &.open {left: $nav-width}
-}
+  &:hover {
+    opacity: 1;
+  }
 
+  &.open {
+    left: $nav-width;
+  }
+}
 
 ////////////////////////////////////////////////////////////////////////////////
 // PAGE LAYOUT AND CODE SAMPLE BACKGROUND
@@ -338,8 +633,9 @@ html, body {
   z-index: 10;
   min-height: 100%;
   background-color: $body-bg;
+  padding-bottom: 1px;
 
-  padding-bottom: 1px; // prevent margin overflow
+  // prevent margin overflow
 
   // The dark box is what gives the code samples their dark background.
   // It sits essentially under the actual content block, which has a
@@ -366,9 +662,10 @@ html, body {
   background-color: $lang-select-bg;
   width: 100%;
   font-weight: bold;
+
   a {
     display: block;
-    float:left;
+    float: left;
     color: $lang-select-text;
     text-decoration: none;
     padding: 0 10px;
@@ -401,6 +698,7 @@ html, body {
 .content {
   // fixes webkit rendering bug for some: see #538
   -webkit-transform: translateZ(0);
+
   // to place content above the dark box
   position: relative;
   z-index: 30;
@@ -412,7 +710,7 @@ html, body {
     clear: both;
   }
 
-  &>h1, &>h2, &>h3, &>h4, &>h5, &>h6, &>p, &>table, &>ul, &>ol, &>aside, &>dl {
+  & > h1, & > h2, & > h3, & > h4, & > h5, & > h6, & > p, & > table, & > ul, & > ol, & > aside, & > dl {
     margin-right: $examples-width;
     padding: 0 $main-padding;
     box-sizing: border-box;
@@ -421,17 +719,18 @@ html, body {
     @extend %left-col;
   }
 
-  &>ul, &>ol {
+  & > ul, & > ol {
     padding-left: $main-padding + 15px;
   }
 
   // the div is the tocify hidden div for placeholding stuff
-  &>h1, &>h2, &>div {
-    clear:both;
+  & > h1, & > h2, & > div {
+    clear: both;
   }
 
   h1 {
     @extend %header-font;
+
     font-size: 25px;
     padding-top: 0.5em;
     padding-bottom: 0.5em;
@@ -448,6 +747,7 @@ html, body {
 
   h2 {
     @extend %header-font;
+
     font-size: 19px;
     margin-top: 4em;
     margin-bottom: 0;
@@ -466,6 +766,7 @@ html, body {
 
   h3, h4, h5, h6 {
     @extend %header-font;
+
     font-size: 15px;
     margin-top: 2.5em;
     margin-bottom: 0.8em;
@@ -484,7 +785,8 @@ html, body {
   table {
     margin-bottom: 1em;
     overflow: auto;
-    th,td {
+
+    th, td {
       text-align: left;
       vertical-align: top;
       line-height: 1.6;
@@ -504,11 +806,11 @@ html, body {
       border-bottom: 1px solid #ccc;
     }
 
-    tr:nth-child(odd)>td {
+    tr:nth-child(odd) > td {
       background-color: $body-bg;
     }
 
-    tr:nth-child(even)>td {
+    tr:nth-child(even) > td {
       background-color: $body-bg;
     }
   }
@@ -533,11 +835,13 @@ html, body {
   code {
     padding: 3px;
     border-radius: 3px;
+
     @extend %break-words;
+
     @extend %code-font;
   }
 
-  pre>code {
+  pre > code {
     background-color: transparent;
     padding: 0;
   }
@@ -599,18 +903,17 @@ html, body {
   pre, blockquote {
     background-color: $code-bg;
     color: #fff;
-
     margin: 0;
     width: $examples-width;
-
-    float:right;
-    clear:right;
-
+    float: right;
+    clear: right;
     box-sizing: border-box;
 
     @extend %right-col;
 
-    &>p { margin: 0; }
+    & > p {
+      margin: 0;
+    }
 
     a {
       color: #fff;
@@ -621,6 +924,7 @@ html, body {
 
   pre {
     @extend %code-font;
+
     padding-top: 2em;
     padding-bottom: 2em;
     padding: 2em $main-padding;
@@ -636,7 +940,7 @@ html, body {
   }
 
   blockquote {
-    &>p {
+    & > p {
       background-color: $code-annotation-bg;
       padding: $code-annotation-padding 2em;
       color: #eee;
@@ -647,11 +951,11 @@ html, body {
 //DEFINITIONS SEPARATOR
 
 li.nav-definitions::before {
-    border-bottom: 1px solid $definitions-border-top;
-    content: '';
-    width: 170px;
-    display: block;
-    margin-left: 15px;
+  border-bottom: 1px solid $definitions-border-top;
+  content: '';
+  width: 170px;
+  display: block;
+  margin-left: 15px;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -688,8 +992,7 @@ li.nav-definitions::before {
     display: none;
   }
 
-  .content>h2, .content>ul
-  {
+  .content > h2, .content > ul {
     word-wrap: break-word;
     width: 100%;
     hyphens: auto;
@@ -716,8 +1019,7 @@ li.nav-definitions::before {
     margin-top: $main-padding;
   }
 
-  .content pre, .content blockquote
-  {
+  .content pre, .content blockquote {
     width: 100%;
     float: none;
     border-radius: 0;
