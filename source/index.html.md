@@ -26,7 +26,6 @@ We have language bindings in Shell, Ruby, and Python! You can view code examples
 This example API documentation page was created with [Slate](https://github.com/tripit/slate). Feel free to edit it and use it as a base for your own API's documentation.
 
 # Authentication
-
 > To authorize, use this code:
 
 ```ruby
@@ -94,7 +93,6 @@ const kittn = require('kittn');
 let api = kittn.authorize('meowmeowmeow');
 let kittens = api.kittens.get();
 ```
-
 > The above command returns JSON structured like this:
 
 ```json
@@ -215,7 +213,7 @@ const kittn = require('kittn');
 let api = kittn.authorize('meowmeowmeow');
 let max = api.kittens.delete(2);
 ```
-
+ 
 > The above command returns JSON structured like this:
 
 ```json
@@ -236,4 +234,3 @@ This endpoint retrieves a specific kitten.
 Parameter | Description
 --------- | -----------
 ID | The ID of the kitten to delete
-
