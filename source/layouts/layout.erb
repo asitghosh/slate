@@ -48,7 +48,7 @@ under the License.
       </span>
     </a>
      -->
-     <header class="header">
+     <header>
       <div class="primary-header">
         <ul class="primary-header-left-ul">
             <li class="primary-header-left-ul-li logo-li">
@@ -78,13 +78,6 @@ under the License.
           </ul>
         </div>
       </div>
-      <div class="secondary-header">
-      <% if current_page.data.search %>
-          <div class="search">
-            <input type="text" class="search" id="input-search" placeholder="Search Documentation">
-          </div>
-      <% end %>
-      </div>
     </header>
     <a href="#" id="nav-button">
       <span>
@@ -93,6 +86,7 @@ under the License.
       </span> 
     </a>
     <div class="toc-wrapper">
+      <%= image_tag "logo.svg", id: 'Page_Logo', class: 'logo' %>
       <% if language_tabs.any? %>
         <div class="lang-selector">
           <% language_tabs.each do |lang| %>
@@ -106,7 +100,7 @@ under the License.
       <% end %>
       <% if current_page.data.search %>
         <div class="search">
-            <input type="text" class="search" id="input-search" placeholder="Search">
+            <input type="text" class="search input-search" placeholder="Search">
         </div>
         <ul class="search-results"></ul>
       <% end %>
