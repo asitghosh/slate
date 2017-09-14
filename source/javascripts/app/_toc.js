@@ -43,9 +43,11 @@
 
 		if ($('body').hasClass('appwise')) {
 			$("#Page_Logo").attr('src', 'images/AppWise.svg');
-      $('body').css('visibility', 'visible');
-    }
 
+		}
+		
+    $('body').css('visibility', 'visible');
+    
 	});
 
 
