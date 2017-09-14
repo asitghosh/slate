@@ -1,6 +1,5 @@
 //= require ../lib/_jquery
 //= require ../lib/_imagesloaded.min
-
 ;
 (function() {
 	'use strict';
@@ -21,44 +20,31 @@
 	};
 
 	////////////////////////////////////////////////////////////////////////////////
-	// Different Left Nav Styling for Different API Docs.
+	// Different Left Nav Logos for Different API Docs.
 	////////////////////////////////////////////////////////////////////////////////
 
 	$(document).ready(function() {
 
 		if ($('body').hasClass('appmarket')) {
-			$("#Page_Logo").attr('src', 'images/AppMarket_MasterLogo1_RGB.svg');
-			$(".toc-wrapper").css('background-color', '#009abf');
-			$("input.input-search").css('background', '#009abf');
-			$("input#header-search").css('background', '#ffffff ');
-			$(".toc-wrapper .search-results").css('background-color', '#009abf');
+
+			$("#Page_Logo").attr('src', 'images/AppMarket.svg');
+      $('body').css('visibility', 'visible');
 		}
 
 		if ($('body').hasClass('appbilling')) {
-			$("#Page_Logo").attr('src', 'images/AppBilling_LogoREV1_RGB.svg');
-			$(".toc-wrapper").css('background-color', '#78be20 ');
-			$("input.input-search").css('background', '#78be20 ');
-			$("input#header-search").css('background', '#ffffff ');
-			$(".toc-wrapper .search-results").css('background-color', '#78be20');
+			$("#Page_Logo").attr('src', 'images/AppBilling.svg');
+      $('body').css('visibility', 'visible');
 		}
 
 		if ($('body').hasClass('appinsights')) {
-			$("#Page_Logo").attr('src', 'images/AppInsights_LogoREV1_RGB.svg');
-			$(".toc-wrapper").css('background-color', '#00a8df ');
-			$("input.input-search").css('background', '#00a8df ');
-			$("input#header-search").css('background', '#ffffff ');
-			$(".toc-wrapper .search-results").css('background-color', '#00a8df ');
+			$("#Page_Logo").attr('src', 'images/AppInsights.svg');
+      $('body').css('visibility', 'visible');
 		}
 
 		if ($('body').hasClass('appwise')) {
-			$("#Page_Logo").attr('src', 'images/AppWise_LogoREV1_RGB.svg');
-			$(".toc-wrapper").css('background-color', '#26d07c ');
-			$("input.input-search").css('background', '#26d07c ');
-			$("input#header-search").css('background', '#ffffff ');
-			$(".toc-wrapper .search-results").css('background-color', '#26d07c ');
-		}
-
-		$('body').css('visibility', 'visible');
+			$("#Page_Logo").attr('src', 'images/AppWise.svg');
+      $('body').css('visibility', 'visible');
+    }
 
 	});
 
@@ -181,5 +167,4 @@
 		$('a[href*="#"]').bind("click", jump); //get all hrefs
 		return false;
 	});
-
 })();
