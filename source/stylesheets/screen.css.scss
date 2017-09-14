@@ -120,15 +120,20 @@ html, body {
   src: url("https://s3.amazonaws.com/doc-center/public-fonts/26050D_A_0.eot?#iefix") format("embedded-opentype"), url("https://s3.amazonaws.com/doc-center/public-fonts/26050D_A_0.woff") format("woff"), url("https://s3.amazonaws.com/doc-center/public-fonts/26050D_A_0.ttf") format("truetype");
 }
 
+#header
+{
+    height: 60px;
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+}
+
 .primary-header {
   display: flex;
   justify-content: space-between;
-  position: fixed;
-  height: 60px;
   top: 0;
   height: 60px;
   width: 100%;
-  z-index: 100;
   background: #eeeeee;
   border-bottom: 1px solid #dddddd;
 
@@ -783,6 +788,7 @@ input.input-search:focus {
   min-height: 100%;
   background-color: $body-bg;
   padding-bottom: 1px;
+  top: 60px;
 
   // prevent margin overflow
 
