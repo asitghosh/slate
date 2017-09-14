@@ -30,6 +30,7 @@ html, body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  visibility: hidden;
 
   @extend %default-font;
 
@@ -119,19 +120,20 @@ html, body {
   src: url("https://s3.amazonaws.com/doc-center/public-fonts/26050D_A_0.eot?#iefix") format("embedded-opentype"), url("https://s3.amazonaws.com/doc-center/public-fonts/26050D_A_0.woff") format("woff"), url("https://s3.amazonaws.com/doc-center/public-fonts/26050D_A_0.ttf") format("truetype");
 }
 
-.header {
-  height: 120px;
-  z-index: 1;
+#header
+{
+    height: 60px;
+    position: fixed;
+    width: 100%;
+    z-index: 100;
 }
 
 .primary-header {
   display: flex;
   justify-content: space-between;
-  position: fixed;
-  height: 60px;
   top: 0;
+  height: 60px;
   width: 100%;
-  z-index: 100;
   background: #eeeeee;
   border-bottom: 1px solid #dddddd;
 
@@ -257,17 +259,6 @@ html, body {
   }
 }
 
-.secondary-header {
-  display: flex;
-  position: fixed;
-  height: 61px;
-  top: 60px;
-  width: 100%;
-  z-index: 50;
-  background: #eeeeee;
-  border-bottom: 1px solid #dddddd;
-}
-
 .search {
   margin-top: auto;
   margin-bottom: auto;
@@ -276,7 +267,7 @@ html, body {
 
 .search input {
   height: 2em;
-  border: solid 1px #b4b4b4;
+  border: solid 1px transparent;
   border-radius: 0px;
   color: #a9a9a9;
   font-size: 1em;
@@ -289,13 +280,17 @@ html, body {
 .search:before {
   position: absolute;
   top: 24px;
-  left: 22px;
+  left: 19px;
   color: #a9a9a9;
 
   @extend %icon-search;
 }
 
-input#input-search:focus {
+.fa{
+  margin-left: 5px;
+}
+
+input.input-search:focus {
   outline: none;
 }
 
@@ -397,13 +392,172 @@ input#input-search:focus {
   width: 20px;
 }
 
+  ////////////////////////////////////////////////////////////////////////////////
+  // Different Left Nav Styling for Different API Docs.
+  ////////////////////////////////////////////////////////////////////////////////
+
+
+.appmarket  
+{
+  & .toc-link  
+    {
+      background-color: #009abf;
+    }
+
+  & .toc-wrapper
+    {
+      background-color: #009abf;
+    }
+
+  & input.input-search
+    {
+      background-color: #009abf !important;
+    }
+
+  & .search-results
+    {
+      background-color: #009abf !important;
+    }
+
+  & .toc-link.active
+    {
+      background-color: #115b75 !important;
+    }
+
+  & .toc-link.active-parent
+    {
+      background-color: #115b75 !important;
+    }
+
+  & .toc-footer li
+    {
+      background-color: #009abf;
+    }
+}
+
+
+.appbilling  
+{
+  & .toc-link  
+    {
+      background-color: #78be20;
+    }
+
+  & .toc-wrapper
+    {
+      background-color: #78be20;
+    }
+
+  & input.input-search
+    {
+      background-color: #78be20 !important;
+    }
+
+  & .search-results
+    {
+      background-color: #78be20 !important;
+    }
+
+  & .toc-link.active
+    {
+      background-color: #629a1a !important;
+    }
+
+  & .toc-link.active-parent
+    {
+      background-color: #629a1a !important;
+    }
+
+  & .toc-footer li
+    {
+      background-color: #78be20;
+    }
+}
+
+.appwise 
+{
+  & .toc-link  
+    {
+      background-color: #26d07c;
+    }
+
+  & .toc-wrapper
+    {
+      background-color: #26d07c;
+    }
+
+  & input.input-search
+    {
+      background-color: #26d07c !important;
+    }
+
+  & .search-results
+    {
+      background-color: #26d07c !important;
+    }
+
+  & .toc-link.active
+    {
+      background-color: #0c8348 !important;
+    }
+
+  & .toc-link.active-parent
+    {
+      background-color: #0c8348 !important;
+    }
+
+  & .toc-footer li
+    {
+      background-color: #26d07c;
+    }
+}
+
+.appinsights
+{
+  & .toc-link  
+    {
+      background-color: #00a8df;
+    }
+  
+  & .toc-wrapper
+    {
+      background-color: #00a8df;
+    }
+
+  & input.input-search
+    {
+      background-color: #00a8df !important;
+    }
+
+  & .search-results
+    {
+      background-color: #00a8df !important;
+    }
+
+  & .toc-link.active
+    {
+      background-color: #006e92 !important;
+    }
+
+  & .toc-link.active-parent
+    {
+      background-color: #006e92 !important;
+    }
+
+  & .toc-footer li
+    {
+      background-color: #00a8df;
+    }
+}
+
+
 .toc-wrapper {
   transition: left 0.3s ease-in-out;
   overflow-y: auto;
   overflow-x: hidden;
   position: fixed;
   z-index: 30;
-  top: 120px;
+  top: 60px;
   left: 0;
   bottom: 0;
   width: $nav-width;
@@ -582,7 +736,7 @@ input#input-search:focus {
   span {
     display: block;
     position: relative;
-    top: 122px;
+    top: 62px;
 
     $side-pad: $main-padding / 2 - 8px;
 
@@ -600,7 +754,7 @@ input#input-search:focus {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 100;
+  z-index: 49;
   color: #000;
   text-decoration: none;
   font-weight: bold;
@@ -634,6 +788,7 @@ input#input-search:focus {
   min-height: 100%;
   background-color: $body-bg;
   padding-bottom: 1px;
+  top: 60px;
 
   // prevent margin overflow
 

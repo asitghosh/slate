@@ -1,117 +1,170 @@
 //= require ../lib/_jquery
 //= require ../lib/_imagesloaded.min
-;(function () {
-  'use strict';
+;
+(function() {
+	'use strict';
 
-  var loaded = false;
+	var loaded = false;
 
-  var debounce = function(func, waitTime) {
-    var timeout = false;
-    return function() {
-      if (timeout === false) {
-        setTimeout(function() {
-          func();
-          timeout = false;
-        }, waitTime);
-        timeout = true;
-      }
-    };
-  };
+	var debounce = function(func, waitTime) {
+		var timeout = false;
+		return function() {
+			if (timeout === false) {
+				setTimeout(function() {
+					func();
+					timeout = false;
+				}, waitTime);
+				timeout = true;
+			}
+		};
+	};
 
-  var closeToc = function() {
-    $(".toc-wrapper").removeClass('open');
-    $("#nav-button").removeClass('open');
-  };
+	////////////////////////////////////////////////////////////////////////////////
+	// Different Left Nav Logos for Different API Docs.
+	////////////////////////////////////////////////////////////////////////////////
 
-  function loadToc($toc, tocLinkSelector, tocListSelector, scrollOffset) {
-    var headerHeights = {};
-    var pageHeight = 0;
-    var windowHeight = 0;
-    var originalTitle = document.title;
+	$(document).ready(function() {
 
-    var recacheHeights = function() {
-      headerHeights = {};
-      pageHeight = $(document).height();
-      windowHeight = $(window).height();
+		if ($('body').hasClass('appmarket')) {
 
-      $toc.find(tocLinkSelector).each(function() {
-        var targetId = $(this).attr('href');
-        if (targetId[0] === "#") {
-          headerHeights[targetId] = $(targetId).offset().top;
-        }
-      });
-    };
+			$("#Page_Logo").attr('src', 'images/AppMarket.svg');
+      $('body').css('visibility', 'visible');
+		}
 
-    var refreshToc = function() {
-      var currentTop = $(document).scrollTop() + scrollOffset;
+		if ($('body').hasClass('appbilling')) {
+			$("#Page_Logo").attr('src', 'images/AppBilling.svg');
+      $('body').css('visibility', 'visible');
+		}
 
-      if (currentTop + windowHeight >= pageHeight) {
-        // at bottom of page, so just select last header by making currentTop very large
-        // this fixes the problem where the last header won't ever show as active if its content
-        // is shorter than the window height
-        currentTop = pageHeight + 1000;
-      }
+		if ($('body').hasClass('appinsights')) {
+			$("#Page_Logo").attr('src', 'images/AppInsights.svg');
+      $('body').css('visibility', 'visible');
+		}
 
-      var best = null;
-      for (var name in headerHeights) {
-        if ((headerHeights[name] < currentTop && headerHeights[name] > headerHeights[best]) || best === null) {
-          best = name;
-        }
-      }
+		if ($('body').hasClass('appwise')) {
+			$("#Page_Logo").attr('src', 'images/AppWise.svg');
+      $('body').css('visibility', 'visible');
+    }
 
-      // Catch the initial load case
-      if (currentTop == scrollOffset && !loaded) {
-        best = window.location.hash;
-        loaded = true;
-      }
+	});
 
-      var $best = $toc.find("[href='" + best + "']").first();
-      if (!$best.hasClass("active")) {
-        // .active is applied to the ToC link we're currently on, and its parent <ul>s selected by tocListSelector
-        // .active-expanded is applied to the ToC links that are parents of this one
-        $toc.find(".active").removeClass("active");
-        $toc.find(".active-parent").removeClass("active-parent");
-        $best.addClass("active");
-        $best.parents(tocListSelector).addClass("active").siblings(tocLinkSelector).addClass('active-parent');
-        $best.siblings(tocListSelector).addClass("active");
-        $toc.find(tocListSelector).filter(":not(.active)").slideUp(150);
-        $toc.find(tocListSelector).filter(".active").slideDown(150);
-        if (window.history.pushState) {
-          window.history.pushState(null, "", best);
-        }
-        // TODO remove classnames
-        document.title = $best.data("title") + " – " + originalTitle;
-      }
-    };
 
-    var makeToc = function() {
-      recacheHeights();
-      refreshToc();
+	var closeToc = function() {
+		$(".toc-wrapper").removeClass('open');
+		$("#nav-button").removeClass('open');
+	};
 
-      $("#nav-button").click(function() {
-        $(".toc-wrapper").toggleClass('open');
-        $("#nav-button").toggleClass('open');
-        return false;
-      });
-      $(".page-wrapper").click(closeToc);
-      $(".toc-link").click(closeToc);
+	function loadToc($toc, tocLinkSelector, tocListSelector, scrollOffset) {
+		var headerHeights = {};
+		var pageHeight = 0;
+		var windowHeight = 0;
+		var originalTitle = document.title;
 
-      // reload immediately after scrolling on toc click
-      $toc.find(tocLinkSelector).click(function() {
-        setTimeout(function() {
-          refreshToc();
-        }, 0);
-      });
+		var recacheHeights = function() {
+			headerHeights = {};
+			pageHeight = $(document).height();
+			windowHeight = $(window).height();
 
-      $(window).scroll(debounce(refreshToc, 200));
-      $(window).resize(debounce(recacheHeights, 200));
-    };
+			$toc.find(tocLinkSelector).each(function() {
+				var targetId = $(this).attr('href');
+				if (targetId[0] === "#") {
+					headerHeights[targetId] = $(targetId).offset().top;
+				}
+			});
+		};
 
-    makeToc();
+		var refreshToc = function() {
+			var currentTop = $(document).scrollTop() + scrollOffset;
 
-    window.recacheHeights = recacheHeights;
-    window.refreshToc = refreshToc;
-  }
+			if (currentTop + windowHeight >= pageHeight) {
+				// at bottom of page, so just select last header by making currentTop very large
+				// this fixes the problem where the last header won't ever show as active if its content
+				// is shorter than the window height
+				currentTop = pageHeight + 1000;
+			}
 
-  window.loadToc = loadToc;
+			var best = null;
+			for (var name in headerHeights) {
+				if ((headerHeights[name] < currentTop && headerHeights[name] > headerHeights[best]) || best === null) {
+					best = name;
+				}
+			}
+
+			// Catch the initial load case
+			if (currentTop == scrollOffset && !loaded) {
+				best = window.location.hash;
+				loaded = true;
+			}
+
+			var $best = $toc.find("[href='" + best + "']").first();
+			if (!$best.hasClass("active")) {
+				// .active is applied to the ToC link we're currently on, and its parent <ul>s selected by tocListSelector
+				// .active-expanded is applied to the ToC links that are parents of this one
+				$toc.find(".active").removeClass("active");
+				$toc.find(".active-parent").removeClass("active-parent");
+				$best.addClass("active");
+				$best.parents(tocListSelector).addClass("active").siblings(tocLinkSelector).addClass('active-parent');
+				$best.siblings(tocListSelector).addClass("active");
+				$toc.find(tocListSelector).filter(":not(.active)").slideUp(150);
+				$toc.find(tocListSelector).filter(".active").slideDown(150);
+				if (window.history.pushState) {
+					window.history.pushState(null, "", best);
+				}
+				// TODO remove classnames
+				document.title = $best.data("title") + " – " + originalTitle;
+			}
+		};
+
+		var makeToc = function() {
+			recacheHeights();
+			refreshToc();
+
+			$("#nav-button").click(function() {
+				$(".toc-wrapper").toggleClass('open');
+				$("#nav-button").toggleClass('open');
+				return false;
+			});
+			$(".page-wrapper").click(closeToc);
+			$(".toc-link").click(closeToc);
+
+			// reload immediately after scrolling on toc click
+			$toc.find(tocLinkSelector).click(function() {
+				setTimeout(function() {
+					refreshToc();
+				}, 0);
+			});
+
+			$(window).scroll(debounce(refreshToc, 200));
+			$(window).resize(debounce(recacheHeights, 200));
+		};
+
+		makeToc();
+
+		window.recacheHeights = recacheHeights;
+		window.refreshToc = refreshToc;
+	}
+
+	window.loadToc = loadToc;
+
+	/////////////////////////////////////////////////
+	/// SCROLL DOWN PAGE TO GET TO CLICKED LINK
+	/////////////////////////////////////////////////
+
+	var jump = function(e) {
+
+		e.preventDefault(); //prevent "hard" jump
+		var target = $(this).attr("href"); //get the target
+
+		//perform animated scrolling
+		$('html,body').animate({
+				scrollTop: $(target).offset().top - document.getElementById('header').offsetHeight //get top-position of target-element and set it as scroll target
+			}, 1000, function() //scrolldelay: 1 seconds
+			{
+				location.hash = target; //attach the hash (#jumptarget) to the pageurl
+			});
+	}
+	$(document).ready(function() {
+		$('a[href*="#"]').bind("click", jump); //get all hrefs
+		return false;
+	});
 })();
