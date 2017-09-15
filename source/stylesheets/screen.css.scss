@@ -125,13 +125,14 @@ html, body {
     height: 60px;
     position: fixed;
     width: 100%;
-    z-index: 100;
+    z-index: 100; 
 }
 
 .primary-header {
   display: flex;
   justify-content: space-between;
   top: 0;
+  height: 60px;
   background: #eeeeee;
   border-bottom: 1px solid #dddddd;
 
