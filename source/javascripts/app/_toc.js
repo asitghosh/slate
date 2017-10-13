@@ -28,26 +28,26 @@
 		if ($('body').hasClass('appmarket')) {
 
 			$("#Page_Logo").attr('src', 'images/AppMarket.svg');
-      $('body').css('visibility', 'visible');
+			$('body').css('visibility', 'visible');
 		}
 
 		if ($('body').hasClass('appbilling')) {
 			$("#Page_Logo").attr('src', 'images/AppBilling.svg');
-      $('body').css('visibility', 'visible');
+			$('body').css('visibility', 'visible');
 		}
 
 		if ($('body').hasClass('appinsights')) {
 			$("#Page_Logo").attr('src', 'images/AppInsights.svg');
-      $('body').css('visibility', 'visible');
+			$('body').css('visibility', 'visible');
 		}
 
 		if ($('body').hasClass('appwise')) {
 			$("#Page_Logo").attr('src', 'images/AppWise.svg');
 
 		}
-		
-    $('body').css('visibility', 'visible');
-    
+
+		$('body').css('visibility', 'visible');
+
 	});
 
 
@@ -152,21 +152,21 @@
 	/// SCROLL DOWN PAGE TO GET TO CLICKED LINK
 	/////////////////////////////////////////////////
 
-	var jump = function(e) {
-
-		e.preventDefault(); //prevent "hard" jump
-		var target = $(this).attr("href"); //get the target
-
-		//perform animated scrolling
-		$('html,body').animate({
-				scrollTop: $(target).offset().top - document.getElementById('header').offsetHeight //get top-position of target-element and set it as scroll target
-			}, 1000, function() //scrolldelay: 1 seconds
-			{
-				location.hash = target; //attach the hash (#jumptarget) to the pageurl
-			});
-	}
 	$(document).ready(function() {
-		$('a[href*="#"]').bind("click", jump); //get all hrefs
-		return false;
+		$('a[href*="#"]').bind("click", function(e) {
+
+			var target = $(this).attr("href"); //Get the target
+			var scrollToPosition = $(target).offset().top - document.getElementById('header').offsetHeight
+
+			$('html,body').animate({
+				'scrollTop': scrollToPosition
+			}, 1000, function(target) {
+				window.location.hash = target;
+			});
+
+			e.preventDefault();
+		});
+
 	});
+
 })();
