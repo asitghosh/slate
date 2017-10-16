@@ -160,7 +160,7 @@
 
 			$('html,body').animate({
 				'scrollTop': scrollToPosition
-			}, 1000, function(target) {
+			}, 0, function(target) {
 				window.location.hash = target;
 			});
 
