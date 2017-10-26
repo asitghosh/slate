@@ -120,12 +120,17 @@ html, body {
   src: url("https://s3.amazonaws.com/doc-center/public-fonts/26050D_A_0.eot?#iefix") format("embedded-opentype"), url("https://s3.amazonaws.com/doc-center/public-fonts/26050D_A_0.woff") format("woff"), url("https://s3.amazonaws.com/doc-center/public-fonts/26050D_A_0.ttf") format("truetype");
 }
 
-#header
-{
-    height: 60px;
-    position: fixed;
-    width: 100%;
-    z-index: 100; 
+@font-face {
+  font-family: "AauxNext-Bold-Web";
+  src: url("https://s3.amazonaws.com/doc-center/public-fonts/26050D_0_0.eot");
+  src: url("https://s3.amazonaws.com/doc-center/public-fonts/26050D_0_0.eot?#iefix") format("embedded-opentype"), url("https://s3.amazonaws.com/doc-center/public-fonts/26050D_0_0.woff") format("woff"), url("https://s3.amazonaws.com/doc-center/public-fonts/26050D_0_0.ttf") format("truetype");
+}
+
+#header {
+  height: 60px;
+  position: fixed;
+  width: 100%;
+  z-index: 100;
 }
 
 .primary-header {
@@ -285,7 +290,7 @@ html, body {
   @extend %icon-search;
 }
 
-.fa{
+.fa {
   margin-left: 5px;
 }
 
@@ -297,7 +302,29 @@ input.input-search:focus {
   display: none;
 }
 
+@media only screen and (max-width: 930px) {
+  .secondary_nav {
+    display: none !important;
+  }
+
+  .toc-wrapper {
+    top: 60px !important;
+  }
+
+  .page-wrapper {
+    top: 60px !important;
+  }
+
+  #nav-button span {
+    top: 62px !important;
+  }
+}
+
 @media only screen and (max-width: 700px) {
+  .secondary_nav {
+    display: none !important;
+  }
+
   #hide_menu {
     display: block;
     text-decoration: none;
@@ -380,6 +407,55 @@ input.input-search:focus {
   }
 }
 
+///// secondary nav styling
+
+.secondary_nav {
+  border-bottom: 1px solid #ddd;
+  height: 50px;
+  z-index: 99;
+  display: flex;
+  position: fixed;
+  top: 60px;
+  width: -webkit-fill-available;
+  background: #ffffff;
+}
+
+.secondary_nav_bold_link {
+  font-family: "AauxNext-Bold-Web",Arial,Helvetica,sans-serif;
+  text-transform: uppercase;
+  line-height: 56px;
+  margin-right: 20px;
+  font-size: 16px;
+  color: #565656;
+  margin-left: 20px;
+}
+
+.secondary_nav_links {
+  line-height: 51px;
+  font-size: 14px;
+  margin-right: 20px;
+}
+
+.secondary_nav_links a {
+  font-family: "AauxNext-Regular-Web",Arial,Helvetica,sans-serif;
+  text-decoration: none;
+  color: #565656;
+  opacity: 0.5;
+}
+
++ span.black {
+  padding-left: 14px;
+  color: #ababab;
+  line-height: 57px;
+  font-size: 16px;
+}
+
+.secondary_nav_active {
+  border-bottom: 3px solid #207490 !important;
+  padding-bottom: 12px !important;
+  opacity: 1 !important;
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 // TABLE OF CONTENTS
 ////////////////////////////////////////////////////////////////////////////////
@@ -391,164 +467,129 @@ input.input-search:focus {
   width: 20px;
 }
 
-  ////////////////////////////////////////////////////////////////////////////////
-  // Different Left Nav Styling for Different API Docs.
-  ////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+// Different Left Nav Styling for Different API Docs.
+////////////////////////////////////////////////////////////////////////////////
 
+.appmarket {
+  & .toc-link {
+    background-color: #009abf;
+  }
 
-.appmarket  
-{
-  & .toc-link  
-    {
-      background-color: #009abf;
-    }
+  & .toc-wrapper {
+    background-color: #009abf;
+  }
 
-  & .toc-wrapper
-    {
-      background-color: #009abf;
-    }
+  & input.input-search {
+    background-color: #009abf !important;
+  }
 
-  & input.input-search
-    {
-      background-color: #009abf !important;
-    }
+  & .search-results {
+    background-color: #009abf !important;
+  }
 
-  & .search-results
-    {
-      background-color: #009abf !important;
-    }
+  & .toc-link.active {
+    background-color: #115b75 !important;
+  }
 
-  & .toc-link.active
-    {
-      background-color: #115b75 !important;
-    }
+  & .toc-link.active-parent {
+    background-color: #115b75 !important;
+  }
 
-  & .toc-link.active-parent
-    {
-      background-color: #115b75 !important;
-    }
-
-  & .toc-footer li
-    {
-      background-color: #009abf;
-    }
+  & .toc-footer li {
+    background-color: #009abf;
+  }
 }
 
+.appbilling {
+  & .toc-link {
+    background-color: #78be20;
+  }
 
-.appbilling  
-{
-  & .toc-link  
-    {
-      background-color: #78be20;
-    }
+  & .toc-wrapper {
+    background-color: #78be20;
+  }
 
-  & .toc-wrapper
-    {
-      background-color: #78be20;
-    }
+  & input.input-search {
+    background-color: #78be20 !important;
+  }
 
-  & input.input-search
-    {
-      background-color: #78be20 !important;
-    }
+  & .search-results {
+    background-color: #78be20 !important;
+  }
 
-  & .search-results
-    {
-      background-color: #78be20 !important;
-    }
+  & .toc-link.active {
+    background-color: #629a1a !important;
+  }
 
-  & .toc-link.active
-    {
-      background-color: #629a1a !important;
-    }
+  & .toc-link.active-parent {
+    background-color: #629a1a !important;
+  }
 
-  & .toc-link.active-parent
-    {
-      background-color: #629a1a !important;
-    }
-
-  & .toc-footer li
-    {
-      background-color: #78be20;
-    }
+  & .toc-footer li {
+    background-color: #78be20;
+  }
 }
 
-.appwise 
-{
-  & .toc-link  
-    {
-      background-color: #26d07c;
-    }
+.appwise {
+  & .toc-link {
+    background-color: #26d07c;
+  }
 
-  & .toc-wrapper
-    {
-      background-color: #26d07c;
-    }
+  & .toc-wrapper {
+    background-color: #26d07c;
+  }
 
-  & input.input-search
-    {
-      background-color: #26d07c !important;
-    }
+  & input.input-search {
+    background-color: #26d07c !important;
+  }
 
-  & .search-results
-    {
-      background-color: #26d07c !important;
-    }
+  & .search-results {
+    background-color: #26d07c !important;
+  }
 
-  & .toc-link.active
-    {
-      background-color: #0c8348 !important;
-    }
+  & .toc-link.active {
+    background-color: #0c8348 !important;
+  }
 
-  & .toc-link.active-parent
-    {
-      background-color: #0c8348 !important;
-    }
+  & .toc-link.active-parent {
+    background-color: #0c8348 !important;
+  }
 
-  & .toc-footer li
-    {
-      background-color: #26d07c;
-    }
+  & .toc-footer li {
+    background-color: #26d07c;
+  }
 }
 
-.appinsights
-{
-  & .toc-link  
-    {
-      background-color: #00a8df;
-    }
-  
-  & .toc-wrapper
-    {
-      background-color: #00a8df;
-    }
+.appinsights {
+  & .toc-link {
+    background-color: #00a8df;
+  }
 
-  & input.input-search
-    {
-      background-color: #00a8df !important;
-    }
+  & .toc-wrapper {
+    background-color: #00a8df;
+  }
 
-  & .search-results
-    {
-      background-color: #00a8df !important;
-    }
+  & input.input-search {
+    background-color: #00a8df !important;
+  }
 
-  & .toc-link.active
-    {
-      background-color: #006e92 !important;
-    }
+  & .search-results {
+    background-color: #00a8df !important;
+  }
 
-  & .toc-link.active-parent
-    {
-      background-color: #006e92 !important;
-    }
+  & .toc-link.active {
+    background-color: #006e92 !important;
+  }
 
-  & .toc-footer li
-    {
-      background-color: #00a8df;
-    }
+  & .toc-link.active-parent {
+    background-color: #006e92 !important;
+  }
+
+  & .toc-footer li {
+    background-color: #00a8df;
+  }
 }
-
 
 .toc-wrapper {
   transition: left 0.3s ease-in-out;
@@ -556,7 +597,7 @@ input.input-search:focus {
   overflow-x: hidden;
   position: fixed;
   z-index: 30;
-  top: 60px;
+  top: 110px;
   left: 0;
   bottom: 0;
   width: $nav-width;
@@ -735,7 +776,7 @@ input.input-search:focus {
   span {
     display: block;
     position: relative;
-    top: 62px;
+    top: 110px;
 
     $side-pad: $main-padding / 2 - 8px;
 
@@ -787,7 +828,7 @@ input.input-search:focus {
   min-height: 100%;
   background-color: $body-bg;
   padding-bottom: 1px;
-  top: 60px;
+  top: 110px;
 
   // prevent margin overflow
 
