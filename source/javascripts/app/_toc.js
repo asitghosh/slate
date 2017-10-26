@@ -28,26 +28,20 @@
 		if ($('body').hasClass('appmarket')) {
 
 			$("#Page_Logo").attr('src', 'images/AppMarket.svg');
-			$('body').css('visibility', 'visible');
 		}
 
 		if ($('body').hasClass('appbilling')) {
 			$("#Page_Logo").attr('src', 'images/AppBilling.svg');
-			$('body').css('visibility', 'visible');
 		}
 
 		if ($('body').hasClass('appinsights')) {
 			$("#Page_Logo").attr('src', 'images/AppInsights.svg');
-			$('body').css('visibility', 'visible');
 		}
 
 		if ($('body').hasClass('appwise')) {
 			$("#Page_Logo").attr('src', 'images/AppWise.svg');
 
 		}
-
-		$('body').css('visibility', 'visible');
-
 	});
 
 
