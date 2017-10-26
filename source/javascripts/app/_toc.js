@@ -28,21 +28,18 @@
 		if ($('body').hasClass('appmarket')) {
 
 			$("#Page_Logo").attr('src', 'images/AppMarket.svg');
-			$('body').css('visibility', 'visible');
 			$('.appmarket_secondary_nav').css('display', 'block');
 			$('.appbilling_secondary_nav').css('display', 'none');
 		}
 
 		if ($('body').hasClass('appbilling')) {
 			$("#Page_Logo").attr('src', 'images/AppBilling.svg');
-			$('body').css('visibility', 'visible');
 			$('.appmarket_secondary_nav').css('display', 'none');
 			$('.appbilling_secondary_nav').css('display', 'block');
 		}
 
 		if ($('body').hasClass('appinsights')) {
 			$("#Page_Logo").attr('src', 'images/AppInsights.svg');
-			$('body').css('visibility', 'visible');
 			$('.appmarket_secondary_nav').css('display', 'none');
 			$('.appbilling_secondary_nav').css('display', 'none');
 			$('.toc-wrapper').css('top', '60px');
@@ -56,9 +53,6 @@
 			$('.toc-wrapper').css('top', '60px');
 			$('.page-wrapper').css('top', '60px');
 		}
-
-		$('body').css('visibility', 'visible');
-
 	});
 
 
