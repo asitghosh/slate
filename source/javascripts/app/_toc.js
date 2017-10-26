@@ -28,19 +28,30 @@
 		if ($('body').hasClass('appmarket')) {
 
 			$("#Page_Logo").attr('src', 'images/AppMarket.svg');
+			$('.appmarket_secondary_nav').css('display', 'block');
+			$('.appbilling_secondary_nav').css('display', 'none');
 		}
 
 		if ($('body').hasClass('appbilling')) {
 			$("#Page_Logo").attr('src', 'images/AppBilling.svg');
+			$('.appmarket_secondary_nav').css('display', 'none');
+			$('.appbilling_secondary_nav').css('display', 'block');
 		}
 
 		if ($('body').hasClass('appinsights')) {
 			$("#Page_Logo").attr('src', 'images/AppInsights.svg');
+			$('.appmarket_secondary_nav').css('display', 'none');
+			$('.appbilling_secondary_nav').css('display', 'none');
+			$('.toc-wrapper').css('top', '60px');
+			$('.page-wrapper').css('top', '60px');
 		}
 
 		if ($('body').hasClass('appwise')) {
 			$("#Page_Logo").attr('src', 'images/AppWise.svg');
-
+			$('.appmarket_secondary_nav').css('display', 'none');
+			$('.appbilling_secondary_nav').css('display', 'none');
+			$('.toc-wrapper').css('top', '60px');
+			$('.page-wrapper').css('top', '60px');
 		}
 	});
 
@@ -55,7 +66,9 @@
 		var pageHeight = 0;
 		var windowHeight = 0;
 		var originalTitle = document.title;
-
+		if (($('body').hasClass('appmarket')) || ($('body').hasClass('appbilling'))) {
+			scrollOffset = 120;
+		}
 		var recacheHeights = function() {
 			headerHeights = {};
 			pageHeight = $(document).height();
@@ -149,16 +162,39 @@
 	$(document).ready(function() {
 		$('a[href*="#"]').bind("click", function(e) {
 
-			var target = $(this).attr("href"); //Get the target
-			var scrollToPosition = $(target).offset().top - document.getElementById('header').offsetHeight
+			if ($('body').hasClass('appmarket')) {
+				var target = $(this).attr("href"); //Get the target
+				var scrollToPosition = $(target).offset().top - document.getElementById('header').offsetHeight - document.getElementById('secondary_nav_appmarket').offsetHeight + 2
 
-			$('html,body').animate({
-				'scrollTop': scrollToPosition
-			}, 0, function(target) {
-				window.location.hash = target;
-			});
+				$('html,body').animate({
+					'scrollTop': scrollToPosition
+				}, 0, function(target) {
+					window.location.hash = target;
+				});
 
-			e.preventDefault();
+				e.preventDefault();
+			} else if ($('body').hasClass('appbilling')) {
+				var target = $(this).attr("href"); //Get the target
+				var scrollToPosition = $(target).offset().top - document.getElementById('header').offsetHeight - document.getElementById('secondary_nav_appbilling').offsetHeight + 2
+
+				$('html,body').animate({
+					'scrollTop': scrollToPosition
+				}, 0, function(target) {
+					window.location.hash = target;
+				});
+
+				e.preventDefault();
+			} else {
+				var target = $(this).attr("href"); //Get the target
+				var scrollToPosition = $(target).offset().top - document.getElementById('header').offsetHeight
+				$('html,body').animate({
+					'scrollTop': scrollToPosition
+				}, 0, function(target) {
+					window.location.hash = target;
+				});
+
+				e.preventDefault();
+			}
 		});
 
 	});

@@ -148,4 +148,16 @@ $(document).ready(function() {
 		$('.appdirect_light_logo').css('display', 'none');
 
 	});
+
+	/// secondary nav links active state
+
+	$('.secondary_nav_links a').click(function(e) {
+
+		if ($('.secondary_nav_links a').hasClass('secondary_nav_active')) {
+			$('.secondary_nav_links a').removeClass('secondary_nav_active');
+		}
+		$(e.target).addClass('secondary_nav_active');
+
+
+	});
 });
