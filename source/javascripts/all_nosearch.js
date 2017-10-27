@@ -2,7 +2,7 @@
 //= require ./app/_toc
 //= require ./app/_lang
 $(function() {
-	loadToc($('#toc'), '.toc-link', '.toc-list-h2', 70);
+	loadToc($('#toc'), '.toc-link', '.toc-list-h2', 120);
 	setupLanguages($('body').data('languages'));
 	$('.content').imagesLoaded(function() {
 		window.recacheHeights();
@@ -16,6 +16,7 @@ window.onpopstate = function() {
 
 $(document).ready(function() {
 	var i = 0;
+	$('.api_reference').addClass('secondary_nav_active');
 	$(this).find('.subnav').hide();
 	$('.primary-header-left-ul-li a').css('color', '#a2a2a2');
 	$('.appdirect_dark_logo').css('display', 'block');
@@ -149,15 +150,4 @@ $(document).ready(function() {
 
 	});
 
-	/// secondary nav links active state
-
-	$('.secondary_nav_links a').click(function(e) {
-
-		if ($('.secondary_nav_links a').hasClass('secondary_nav_active')) {
-			$('.secondary_nav_links a').removeClass('secondary_nav_active');
-		}
-		$(e.target).addClass('secondary_nav_active');
-
-
-	});
 });
