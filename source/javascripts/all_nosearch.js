@@ -2,7 +2,7 @@
 //= require ./app/_toc
 //= require ./app/_lang
 $(function() {
-	loadToc($('#toc'), '.toc-link', '.toc-list-h2', 70);
+	loadToc($('#toc'), '.toc-link', '.toc-list-h2', 120);
 	setupLanguages($('body').data('languages'));
 	$('.content').imagesLoaded(function() {
 		window.recacheHeights();
@@ -146,18 +146,6 @@ $(document).ready(function() {
 
 		$('.appdirect_dark_logo').css('display', 'block');
 		$('.appdirect_light_logo').css('display', 'none');
-
-	});
-
-	/// secondary nav links active state
-
-	$('.secondary_nav_links a').click(function(e) {
-
-		if ($('.secondary_nav_links a').hasClass('secondary_nav_active')) {
-			$('.secondary_nav_links a').removeClass('secondary_nav_active');
-		}
-		$(e.target).addClass('secondary_nav_active');
-
 
 	});
 });
