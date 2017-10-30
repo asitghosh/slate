@@ -408,6 +408,26 @@ input.input-search:focus {
 
 ///// secondary nav styling
 
+.appmarket_secondary_nav
+{
+  display: none;
+}
+
+.appbilling_secondary_nav
+{
+  display: none;
+}
+
+.appinsights_secondary_nav
+{
+  display: none;
+}
+
+.appwise_secondary_nav
+{
+  display: none;
+}
+
 .secondary_nav {
   border-bottom: 1px solid #ddd;
   height: 50px;
@@ -442,18 +462,28 @@ input.input-search:focus {
   opacity: 0.5;
 }
 
-+ span.black {
+span.black {
   padding-left: 14px;
   color: #ababab;
   line-height: 57px;
   font-size: 16px;
 }
 
-.secondary_nav_active {
+.api_reference {
   border-bottom: 3px solid #207490 !important;
   padding-bottom: 12px !important;
   opacity: 1 !important;
 }
+
+.api_reference a {
+  opacity: 1 !important;
+}
+
+.secondary_nav_links a:hover {
+    opacity: 0.75;
+}
+
+
 
 ////////////////////////////////////////////////////////////////////////////////
 // TABLE OF CONTENTS
@@ -467,7 +497,7 @@ input.input-search:focus {
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-// Different Left Nav Styling for Different API Docs.
+// Different Left Nav And Second Nav Styling for Different API Docs.
 ////////////////////////////////////////////////////////////////////////////////
 
 .appmarket {
@@ -498,7 +528,23 @@ input.input-search:focus {
   & .toc-footer li {
     background-color: #009abf;
   }
+
+  & .logo{
+    display: block;
+    padding: 18px;
+    padding-top: 58px;
+    margin: auto;
+    width: 90px;
+    height: inherit;
+    background: url("../images/AppMarket.svg") center no-repeat;
+  }
+
+ & .appmarket_secondary_nav{
+  display: block;
+  } 
+
 }
+
 
 .appbilling {
   & .toc-link {
@@ -528,6 +574,21 @@ input.input-search:focus {
   & .toc-footer li {
     background-color: #78be20;
   }
+
+  & .logo{
+    display: block;
+    padding: 18px;
+    padding-top: 58px;
+    margin: auto;
+    width: 90px;
+    height: inherit;
+    background: url("../images/AppBilling.svg") center no-repeat;
+  }
+
+  & .appbilling_secondary_nav{
+  display: block;
+  }
+
 }
 
 .appwise {
@@ -558,6 +619,21 @@ input.input-search:focus {
   & .toc-footer li {
     background-color: #26d07c;
   }
+
+  & .logo{
+    display: block;
+    padding: 18px;
+    padding-top: 58px;
+    margin: auto;
+    width: 90px;
+    height: inherit;
+    background: url("../images/AppWise.svg") center no-repeat;
+  }
+
+  & .appwise_secondary_nav{
+  display: block;
+  }
+
 }
 
 .appinsights {
@@ -587,6 +663,20 @@ input.input-search:focus {
 
   & .toc-footer li {
     background-color: #00a8df;
+  }
+
+  & .logo{
+    display: block;
+    padding: 18px;
+    padding-top: 58px;
+    margin: auto;
+    width: 90px;
+    height: inherit;
+    background: url("../images/AppInsights.svg") center no-repeat;
+  }
+
+  & .appinsights_secondary_nav{
+  display: block;
   }
 }
 
