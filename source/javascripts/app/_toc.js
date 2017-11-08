@@ -30,9 +30,6 @@
 		var pageHeight = 0;
 		var windowHeight = 0;
 		var originalTitle = document.title;
-		if (($('body').hasClass('appmarket')) || ($('body').hasClass('appbilling'))) {
-			scrollOffset = 120;
-		}
 		var recacheHeights = function() {
 			headerHeights = {};
 			pageHeight = $(document).height();
@@ -124,10 +121,23 @@
 	/////////////////////////////////////////////////
 
 	$(document).ready(function() {
+
+		var target;
+		window.onload = function(e) {
+			if ($('#toc a[href = "' + window.location.hash + '"]')) {
+				target = window.location.hash;
+				managePageScroll();
+			}
+		}
+
 		$('a[href*="#"]').bind("click", function(e) {
 
-			var target = $(this).attr("href"); //Get the target
+			target = $(this).attr("href"); //Get the target
+			managePageScroll();
+			e.preventDefault();
+		});
 
+		function managePageScroll() {
 			if ($('body').hasClass('appmarket')) {
 				var scrollToPosition = $(target).offset().top - document.getElementById('header').offsetHeight - document.getElementById('appmarket_second_nav').offsetHeight + 2
 
@@ -149,9 +159,6 @@
 			}, 0, function(target) {
 				window.location.hash = target;
 			});
-
-			e.preventDefault();
-		});
-
+		}
 	});
 })();
