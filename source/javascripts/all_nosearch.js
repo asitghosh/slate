@@ -119,6 +119,18 @@ $(document).ready(function() {
 
 	});
 
+	$('.training-li').mouseover(function() {
+
+		$('.training').css('color', '#fff');
+
+	});
+	$('.training-li').mouseout(function() {
+
+		$('.training').css('color', '#a2a2a2');
+
+
+	});
+
 	$('.right-side-border').mouseover(function() {
 
 		$('.right-side-border a').css('color', '#fff');
