@@ -206,10 +206,10 @@ html, body {
   padding-right: 14px !important;
 }
 
-.training-li{
-   border-right: 0;
-   border-bottom: 0 !important;
- }
+.training-li {
+  border-right: 0;
+  border-bottom: 0 !important;
+}
 
 .header-links {
   text-decoration: none;
@@ -331,7 +331,7 @@ input.input-search:focus {
     display: block;
     text-decoration: none;
     padding-left: 15px;
-    padding-right: 15px;
+    padding-right: 10px;
     padding-top: 10px;
     padding-bottom: 10px;
     font-size: 26.5px;
@@ -395,10 +395,6 @@ input.input-search:focus {
     border-bottom: 1px solid #474747;
   }
 
-  .header-right-div {
-    padding-right: 4.5%;
-  }
-
   .display_none_mobile_view {
     display: none;
   }
@@ -411,23 +407,19 @@ input.input-search:focus {
 
 ///// secondary nav styling
 
-.appmarket_secondary_nav
-{
+.appmarket_secondary_nav {
   display: none;
 }
 
-.appbilling_secondary_nav
-{
+.appbilling_secondary_nav {
   display: none;
 }
 
-.appinsights_secondary_nav
-{
+.appinsights_secondary_nav {
   display: none;
 }
 
-.appwise_secondary_nav
-{
+.appwise_secondary_nav {
   display: none;
 }
 
@@ -483,10 +475,8 @@ span.black {
 }
 
 .secondary_nav_links a:hover {
-    opacity: 0.75;
+  opacity: 0.75;
 }
-
-
 
 ////////////////////////////////////////////////////////////////////////////////
 // TABLE OF CONTENTS
@@ -532,7 +522,7 @@ span.black {
     background-color: #009abf;
   }
 
-  & .logo{
+  & .logo {
     display: block;
     padding: 18px;
     padding-top: 58px;
@@ -542,12 +532,10 @@ span.black {
     background: url("../images/AppMarket.svg") center no-repeat;
   }
 
- & .appmarket_secondary_nav{
-  display: block;
-  } 
-
+  & .appmarket_secondary_nav {
+    display: block;
+  }
 }
-
 
 .appbilling {
   & .toc-link {
@@ -578,7 +566,7 @@ span.black {
     background-color: #78be20;
   }
 
-  & .logo{
+  & .logo {
     display: block;
     padding: 18px;
     padding-top: 58px;
@@ -588,10 +576,9 @@ span.black {
     background: url("../images/AppBilling.svg") center no-repeat;
   }
 
-  & .appbilling_secondary_nav{
-  display: block;
+  & .appbilling_secondary_nav {
+    display: block;
   }
-
 }
 
 .appwise {
@@ -623,7 +610,7 @@ span.black {
     background-color: #26d07c;
   }
 
-  & .logo{
+  & .logo {
     display: block;
     padding: 18px;
     padding-top: 58px;
@@ -633,10 +620,9 @@ span.black {
     background: url("../images/AppWise.svg") center no-repeat;
   }
 
-  & .appwise_secondary_nav{
-  display: block;
+  & .appwise_secondary_nav {
+    display: block;
   }
-
 }
 
 .appinsights {
@@ -668,7 +654,7 @@ span.black {
     background-color: #00a8df;
   }
 
-  & .logo{
+  & .logo {
     display: block;
     padding: 18px;
     padding-top: 58px;
@@ -678,8 +664,8 @@ span.black {
     background: url("../images/AppInsights.svg") center no-repeat;
   }
 
-  & .appinsights_secondary_nav{
-  display: block;
+  & .appinsights_secondary_nav {
+    display: block;
   }
 }
 
