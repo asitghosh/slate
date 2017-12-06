@@ -196,8 +196,15 @@ html, body {
 .both-side-border {
   border-left: 1px solid #dddddd;
   border-right: 1px solid #dddddd;
-  padding-left: 14px !important;
-  padding-right: 14px !important;
+  padding-left: 14px;
+  padding-right: 14px;
+}
+
+.subnav-li {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  width: 120px !important;
+  text-align: center !important;
 }
 
 .right-side-border {
