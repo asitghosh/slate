@@ -67,7 +67,7 @@ $(document).ready(function() {
 		} else if ($(window).width() <= 700) {
 			donotpopulate();
 			$(document).on('click', 'body', function(event) {
-				if ($(event.target).attr('id') !== "userguidelink_id") {
+				if (($(event.target).attr('id') !== "userguidelink_id") && ($(event.target).attr('id') !== "drop_down_icon")) {
 					donotpopulate();
 					i = 0;
 				}
