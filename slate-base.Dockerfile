@@ -14,7 +14,6 @@ RUN mkdir /app/slate/source
 
 COPY ./* app/slate/
 COPY ./lib /app/slate/lib
-COPY ./source/searchPage.html /app/slate/source/
 
 WORKDIR /app/slate
 RUN bundle install
