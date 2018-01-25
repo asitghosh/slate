@@ -1200,6 +1200,7 @@ li.nav-definitions::before {
   height: 80px;
   width: 40px;
   line-height: 100px;
+  background-color: transparent;
   text-decoration: none;
   color: #cacaca;
   outline: 0;
@@ -1212,6 +1213,8 @@ li.nav-definitions::before {
 {
   color: #8e8e8e;
   background: url(../images/arrow-up-hover.svg) -1px 8px no-repeat #ffffff;
+  background-color: transparent;
+
 }
 
 #back-to-top.show 
@@ -1740,4 +1743,25 @@ li.search-filter-options
 
 .highlight, .highlight .w {
   background-color: $code-bg;
+}
+
+@media (min-width: 1073px) {
+
+  #search-val
+  {
+    display: block !important;
+  }
+
+
+  .primary-header-right-ul
+  {
+    display: flex !important;
+  }
+
+
+  .search-filter-mobile
+  {
+     display: none !important;
+  }
+
 }
