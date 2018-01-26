@@ -1,5 +1,7 @@
 FROM ruby:2.3
 
+ENV goal_env=unknown
+
 RUN apt-get update
 RUN apt-get install -yq ruby ruby-dev build-essential libssl-dev libcurl4-gnutls-dev libexpat1-dev gettext unzip git nodejs \
 	&& apt-get clean \
@@ -14,6 +16,9 @@ RUN mkdir /app/slate/source
 
 COPY ./* app/slate/
 COPY ./lib /app/slate/lib
+COPY ./source /app/slate/source/
 
 WORKDIR /app/slate
 RUN bundle install
+
+ENTRYPOINT bundle exec middleman ${goal_env}
