@@ -1,7 +1,8 @@
 #!/bin/bash
-
-docker build -t slate-base -f slate-base.Dockerfile .
-docker build --no-cache -t slate -f source/slate-source.Dockerfile ./source
-
+# This script start a server for slate from slate image.
+# if you want to add file to this docker image, use the following command
+# docker cp {FILE or FOLDER} slate-server:/app/slate/source
+set -e
+echo "Start slate on port 4567"
 open http://localhost:4567/index.html
-docker run --rm -p 4567:4567 -it slate
+docker run --env goal_env=server --name slate-server --rm -p 4567:4567 -it docker.appdirect.tools/documentation/slate
