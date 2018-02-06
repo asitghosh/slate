@@ -5,4 +5,4 @@
 set -e
 echo "Start slate on port 4567"
 open http://localhost:4567/index.html
-docker run --env MIDDLEMAN_COMMAND=server --name slate-server --rm -p 4567:4567 -it docker.appdirect.tools/documentation/slate
+docker run --env MIDDLEMAN_COMMAND=server --name slate-server --rm -p 4567:4567 -it docker.appdirect.tools/documentation/slate:test

@@ -37,6 +37,7 @@ $(document).ready(function() {
 
 		$('.search-result-title').empty();
 		$('.search-image').css('display', 'block');
+
 		$('.search-filter-mobile').css('display', 'none');
 		$('.search-results').css('display', 'none');
 		$('.index_All').prop('checked', true);
@@ -46,7 +47,7 @@ $(document).ready(function() {
 				for (var i = 0; i < data.response.docs.length; i++) {
 					var title = data.response.docs[i].title;
 
-					if (title.includes("AppWise") || title.includes("AppInsights") || title.includes("App Market") || title.includes("App Billing")) {
+					if (title.includes("AppWise") || title.includes("AppInsights") || title.includes("AppMarket") || title.includes("AppBilling")) {
 
 						title = trimApiTitles(title);
 					}
@@ -57,7 +58,6 @@ $(document).ready(function() {
 					filterTitleBaseOnUrl(getUrl);
 					container = data.response.docs;
 					searchClass.append("<a class='search-title-append' href = " + getUrl + " target = '_blank'>" + "<p class='search-title-append-content'>" + title + "</p>" + "</a>" + "<p class='search-highlight'>" + desc + "</p>");
-
 				}
 			} else {
 				searchClass.append("<p>No results found for " + "'" + input + "'" + "</p>");
@@ -66,7 +66,6 @@ $(document).ready(function() {
 			$('.search-heading').append("Search Results for " + "'" + input + "'");
 			$('.search-results').css('display', 'flex');
 			$('.search-image').css('display', 'none');
-
 			if ($(window).width() <= 1073) {
 				$('#All_Mobile').prop('checked', true);
 				$('.search-filter-mobile').css('display', 'flex');
@@ -77,13 +76,12 @@ $(document).ready(function() {
 	$('.index_api').click(function() {
 
 		$('.search-result-title').empty();
-
 		var input = $('#search-val').val();
 
 		for (var i = 0; i < container.length; i++) {
 			var title = container[i].title;
 
-			if (title.includes("AppWise") || title.includes("AppInsights") || title.includes("App Market") || title.includes("App Billing")) {
+			if (title.includes("AppWise") || title.includes("AppInsights") || title.includes("AppMarket") || title.includes("AppBilling")) {
 
 				title = trimApiTitles(title);
 			}
@@ -95,7 +93,6 @@ $(document).ready(function() {
 				filterTitleBaseOnUrl(getUrl);
 				searchClass.append("<a class='search-title-append' href = " + getUrl + " target = '_blank'>" + "<p class='search-title-append-content'>" + title + "</p>" + "</a>" + "<p class='search-highlight'>" + desc + "</p>");
 			}
-
 		}
 		highlightKeyword(input);
 	});
@@ -107,8 +104,7 @@ $(document).ready(function() {
 
 		for (var i = 0; i < container.length; i++) {
 			var title = container[i].title;
-
-			if (title.includes("AppWise") || title.includes("AppInsights") || title.includes("App Market") || title.includes("App Billing")) {
+			if (title.includes("AppWise") || title.includes("AppInsights") || title.includes("AppMarket") || title.includes("AppBilling")) {
 
 				title = trimApiTitles(title);
 			}
@@ -127,13 +123,13 @@ $(document).ready(function() {
 	$('.index_All').click(function() {
 
 		$('.search-result-title').empty();
-
 		var input = $('#search-val').val();
 
 		for (var i = 0; i < container.length; i++) {
+
 			var title = container[i].title;
 
-			if (title.includes("AppWise") || title.includes("AppInsights") || title.includes("App Market") || title.includes("App Billing")) {
+			if (title.includes("AppWise") || title.includes("AppInsights") || title.includes("AppMarket") || title.includes("AppBilling")) {
 
 				title = trimApiTitles(title);
 			}
@@ -195,16 +191,8 @@ $(document).ready(function() {
 	function trimApiTitles(title) {
 		var api_title = " ";
 
-		if (title.includes("AppWise") || title.includes("AppInsights")) {
-			api_title = title.split("-");
-			title = api_title.slice(1, api_title.length).join("-");
-			return title;
-		}
-
-		if (title.includes("App Market") || title.includes("App Billing")) {
-			api_title = title.split("-");
-			title = api_title.slice(2, api_title.length).join("-");
-			return title;
-		}
+		api_title = title.split("-");
+		title = api_title.slice(1, api_title.length).join("-");
+		return title;
 	}
 });
