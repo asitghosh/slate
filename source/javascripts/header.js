@@ -90,47 +90,6 @@ $(document).ready(function() {
 		$('.userguidelink').css("border-bottom", "1px solid #dddddd");
 
 	}
-
-	//////////////////////////////////////////////////////////////////////////////
-	/////// Colour change of anchor tag on hover of li
-	//////////////////////////////////////////////////////////////////////////////
-
-	$('.helpsupport-li').mouseover(function() {
-
-		$('.helpsupport').css('color', '#fff');
-
-	});
-	$('.helpsupport-li').mouseout(function() {
-
-		$('.helpsupport').css('color', '#a2a2a2');
-
-
-	});
-
-	$('.training-li').mouseover(function() {
-
-		$('.training').css('color', '#fff');
-
-	});
-	$('.training-li').mouseout(function() {
-
-		$('.training').css('color', '#a2a2a2');
-
-
-	});
-
-	$('.right-side-border').mouseover(function() {
-
-		$('.right-side-border a').css('color', '#fff');
-
-	});
-	$('.right-side-border').mouseout(function() {
-
-		$('.right-side-border a').css('color', '#a2a2a2');
-
-
-	});
-
 	///////////////////////////////////////////////////////////////////////////////
 	///////////// Changing top-left side appdirect logo on hover
 	//////////////////////////////////////////////////////////////////////////////
