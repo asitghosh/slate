@@ -166,8 +166,6 @@ html, body {
 
     &-li {
       height: 60px;
-      padding-left: 12px;
-      padding-right: 12px;
       margin: auto;
 
       &:hover {
@@ -200,8 +198,6 @@ html, body {
 .both-side-border {
   border-left: 1px solid #dddddd;
   border-right: 1px solid #dddddd;
-  padding-left: 14px;
-  padding-right: 14px;
 }
 
 .subnav-li {
@@ -213,8 +209,6 @@ html, body {
 
 .right-side-border {
   border-right: 1px solid #dddddd;
-  padding-left: 14px !important;
-  padding-right: 14px !important;
 }
 
 .training-li {
@@ -230,6 +224,8 @@ html, body {
   height: 60px;
   line-height: 60px;
   display: block;
+  padding-left: 14px;
+  padding-right: 14px;
 
   &:hover {
     color: #fff;
@@ -1396,9 +1392,9 @@ li.search-filter-options {
   src: url("https://s3.amazonaws.com/doc-center/public-fonts/26050D_A_0.eot?#iefix") format("embedded-opentype"), url("https://s3.amazonaws.com/doc-center/public-fonts/26050D_A_0.woff") format("woff"), url("https://s3.amazonaws.com/doc-center/public-fonts/26050D_A_0.ttf") format("truetype");
 }
 
-////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
 // RESPONSIVE DESIGN
-////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
 // These are the styles for phones and tablets
 // There are also a couple styles disperesed
 
@@ -1445,6 +1441,10 @@ li.search-filter-options {
   .search-heading {
     font: 1.6em/1.4em "AauxNext-Medium-Web",Arial,Helvetica,sans-serif;
     margin-left: 20px;
+  }
+
+  .login {
+    padding-left: 26px !important;
   }
 
   .search-result-title {
