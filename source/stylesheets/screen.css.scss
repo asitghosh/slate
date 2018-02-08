@@ -233,6 +233,17 @@ html, body {
   }
 }
 
+.userguidelink:after {
+  content: "";
+  position: relative;
+  margin-left: 9px;
+  width: 0px;
+  height: 0px;
+  border: 4px transparent solid;
+  border-top: 4px solid #c2c2c2;
+  top: 9px;
+}
+
 .subnav {
   list-style-type: none;
   padding: 0;
@@ -1580,10 +1591,6 @@ li.search-filter-options {
     font-size: 26.5px;
     border-left: 1px solid #dddddd;
     color: rgb(162, 162, 162);
-  }
-
-  .secondary_nav {
-    display: none !important;
   }
 
   .primary-header-right-ul-li a {
