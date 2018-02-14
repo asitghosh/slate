@@ -57,9 +57,3 @@ helpers do
 end
 
 page '/searchPage.html', :layout => false
-
-config[:walkme_url] = "https://cdn.walkme.com/users/7d99ba68b982471c851b1260868b2859/walkme_7d99ba68b982471c851b1260868b2859_https.js"
-
-configure :development do
-  config[:walkme_url] = "https://cdn.walkme.com/users/7d99ba68b982471c851b1260868b2859/test/walkme_7d99ba68b982471c851b1260868b2859_https.js"
-end
