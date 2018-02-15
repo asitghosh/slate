@@ -75,20 +75,18 @@ $(document).ready(function() {
 
 	function populate() {
 		$('.subnav').show();
-		$('.subnav-li').css("background-color", "#333");
-		$('.userguidelink').css("background-color", "#333");
-		$('.userguidelink').css("color", "#fff");
-		$('.userguidelink').css("border-bottom", "0");
-
+		$('.subnav-li').removeClass('donotpopulate_subnav');
+		$('.subnav-li').addClass('populate_subnav');
+		$('.userguidelink').removeClass('donotpopulate_user_guide_link');
+		$('.userguidelink').addClass('populate_user_guide_link');
 	}
 
 	function donotpopulate() {
 		$('.subnav').hide();
-		$('.subnav-li').css("background-color", "#eee");
-		$('.userguidelink').css("background-color", "#eee");
-		$('.userguidelink').css("color", "#a2a2a2");
-		$('.userguidelink').css("border-bottom", "1px solid #dddddd");
-
+		$('.subnav-li').removeClass('populate_subnav');
+		$('.subnav-li').addClass('donotpopulate_subnav');
+		$('.userguidelink').removeClass('populate_user_guide_link');
+		$('.userguidelink').addClass('donotpopulate_user_guide_link');
 	}
 	///////////////////////////////////////////////////////////////////////////////
 	///////////// Changing top-left side appdirect logo on hover

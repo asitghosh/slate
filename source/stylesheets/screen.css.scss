@@ -1661,6 +1661,9 @@ li.search-filter-options {
 @media (max-width: 1279px) {
   #st-2 {
     top: auto !important;
+    display: block !important;
+    left: auto !important;
+    width: auto !important;
   }
 }
 
@@ -1723,4 +1726,24 @@ li.search-filter-options {
   .search-filter-mobile {
     display: none !important;
   }
+}
+
+.populate_subnav {
+  background-color: #333 !important;
+}
+
+.populate_user_guide_link {
+  background-color: #333 !important;
+  color: #fff !important;
+  border-bottom: 0 !important;
+}
+
+.donotpopulate_subnav {
+  background-color: #eee !important;
+}
+
+.donotpopulate_user_guide_link {
+  background-color: #eee !important;
+  color: #a2a2a2 !important;
+  border-bottom: 1px solid #dddddd !important;
 }
