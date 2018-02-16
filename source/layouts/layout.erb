@@ -49,7 +49,16 @@ under the License.
   </head>
 
   <body class="<%= page_classes %>" data-languages="<%=h language_tabs.map{ |lang| lang.is_a?(Hash) ? lang.keys.first : lang }.to_json %>">
-    
+     <div id = "load">
+       <div class="load_div">
+         <div class="loading_text">
+          <span>Loading...</span>
+         </div>
+         <span class="adb-loading">
+          <span class="adb-loading--text"></span>
+         </span>
+       </div>
+     </div>
      <header id="header">
       <div class="primary-header">
         <ul class="primary-header-left-ul">
