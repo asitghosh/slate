@@ -1,5 +1,7 @@
 $(document).ready(function() {
 	var i = 0;
+	var responsiveBreakPoint = 1073;
+
 	$(this).find('.subnav').hide();
 	$('.primary-header-left-ul-li a').css('color', '#a2a2a2');
 	$('.appdirect_dark_logo').css('display', 'block');
@@ -10,7 +12,7 @@ $(document).ready(function() {
 	//////////////////////////////////////////////////////////////////
 
 	$(document).on('click', 'body', function(e) {
-		if ($(window).width() <= 1073) {
+		if ($(window).width() <= responsiveBreakPoint) {
 			if ($(e.target).attr('id') !== "hide_menu") {
 				$('.primary-header-right-ul').hide();
 				$('#hide_menu').removeClass('active');
@@ -22,7 +24,7 @@ $(document).ready(function() {
 		$('.primary-header-right-ul').toggle();
 	});
 	$(window).resize(function() {
-		if ($(window).width() > 1073) {
+		if ($(window).width() > responsiveBreakPoint) {
 			if ($('#hide_menu').hasClass('active')) {
 				$('#hide_menu').removeClass('active');
 				$(".primary-header-right-ul").css('display', 'flex');
@@ -40,7 +42,7 @@ $(document).ready(function() {
 		////// Open user guide menu on hover for desktop + tablet view and on click for mobile view
 		////////////////////////////////////////////////////////////////////////////////////////////
 
-		if ($(window).width() > 1073) {
+		if ($(window).width() > responsiveBreakPoint) {
 			donotpopulate();
 			$('.subnav-li , .subnav').mouseover(function() {
 				populate();
@@ -48,7 +50,7 @@ $(document).ready(function() {
 			$('.subnav-li , .subnav').mouseout(function() {
 				donotpopulate();
 			});
-		} else if ($(window).width() <= 1073) {
+		} else if ($(window).width() <= responsiveBreakPoint) {
 			donotpopulate();
 			$(document).on('click', 'body', function(event) {
 				if ($(event.target).attr('id') !== "userguidelink_id") {
@@ -107,7 +109,7 @@ $(document).ready(function() {
 	});
 
 	$(document).on('click', 'body', function(e) {
-		if ($(window).width() <= 1073) {
+		if ($(window).width() <= responsiveBreakPoint) {
 			if (($(e.target).attr('id') !== "search_menu") && ($(e.target).attr('id') !== "search_image") && ($(e.target).attr('id') !== "search-val")) {
 				$('.header-search-result').hide();
 				$('#search_menu').removeClass('active');

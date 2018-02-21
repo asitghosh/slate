@@ -1190,6 +1190,18 @@ li.nav-definitions::before {
   margin: 0;
 }
 
+.product-filter-heading
+{
+  margin: 0;
+}
+
+.filters
+{
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
 .header-search-result {
   background: url(../images/magnifying_glass.png) 12px 8px no-repeat #ffffff !important;
 }
@@ -1235,9 +1247,21 @@ li.nav-definitions::before {
   margin-left: 20px;
 }
 
+.product-filter {
+    list-style-type: none;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
 li.search-filter-options {
   line-height: 30px;
 }
+
+li.product-filter-options
+{
+  line-height: 30px;
+}
+
 
 .search-filter label {
   font-size: 14px;
@@ -1247,6 +1271,17 @@ li.search-filter-options {
   padding-left: 3px;
   font-family: Arial,Helvetica,sans-serif;
   color: #bfbfbf;
+}
+
+.product-filter label
+{
+    font-size: 14px;
+    text-transform: none;
+    font-weight: normal;
+    letter-spacing: 0;
+    padding-left: 3px;
+    font-family: Arial,Helvetica,sans-serif;
+    color: #bfbfbf;
 }
 
 .search-title-append-content {
@@ -1267,6 +1302,10 @@ li.search-filter-options {
 
 .search-filter input[type="radio"]:checked + label {
   color: #565656;
+}
+
+.product-filter input[type="checkbox"]:checked+label {
+    color: #565656;
 }
 
 #search-val {
@@ -1510,6 +1549,10 @@ li.search-filter-options {
   .search-filter-mobile input[type="radio"] {
     position: relative;
     top: 1.5px;
+  }
+
+  .product-filter{
+    display: none;
   }
 
   .search-filter-heading {
