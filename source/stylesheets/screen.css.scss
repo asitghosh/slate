@@ -113,18 +113,6 @@ html, body {
 // HEADER
 ////////////////////////////////////////////////////////////////////////////////
 
-@font-face {
-  font-family: "AauxNext-Regular-Web";
-  src: url("https://s3.amazonaws.com/doc-center/public-fonts/26050D_A_0.eot");
-  src: url("https://s3.amazonaws.com/doc-center/public-fonts/26050D_A_0.eot?#iefix") format("embedded-opentype"), url("https://s3.amazonaws.com/doc-center/public-fonts/26050D_A_0.woff") format("woff"), url("https://s3.amazonaws.com/doc-center/public-fonts/26050D_A_0.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: "AauxNext-Bold-Web";
-  src: url("https://s3.amazonaws.com/doc-center/public-fonts/26050D_0_0.eot");
-  src: url("https://s3.amazonaws.com/doc-center/public-fonts/26050D_0_0.eot?#iefix") format("embedded-opentype"), url("https://s3.amazonaws.com/doc-center/public-fonts/26050D_0_0.woff") format("woff"), url("https://s3.amazonaws.com/doc-center/public-fonts/26050D_0_0.ttf") format("truetype");
-}
-
 #header {
   height: 60px;
   position: fixed;
@@ -842,7 +830,6 @@ span.black {
   }
 
   .lang-selector {
-    position: fixed;
     z-index: 50;
     border-bottom: 5px solid $lang-select-active-bg;
   }
@@ -1016,6 +1003,7 @@ span.black {
   p, li, dt, dd {
     line-height: 1.6;
     margin-top: 0;
+    overflow: auto;
   }
 
   img {
@@ -1419,27 +1407,21 @@ li.product-filter-options
 // FONT FAMILY
 
 @font-face {
+  font-family: "AauxNext-Regular-Web";
+  src: url("https://s3.amazonaws.com/doc-center/public-fonts/26050D_A_0.eot");
+  src: url("https://s3.amazonaws.com/doc-center/public-fonts/26050D_A_0.eot?#iefix") format("embedded-opentype"), url("https://s3.amazonaws.com/doc-center/public-fonts/26050D_A_0.woff") format("woff"), url("https://s3.amazonaws.com/doc-center/public-fonts/26050D_A_0.ttf") format("truetype");
+}
+
+@font-face {
   font-family: "AauxNext-Bold-Web";
   src: url("https://s3.amazonaws.com/doc-center/public-fonts/26050D_0_0.eot");
   src: url("https://s3.amazonaws.com/doc-center/public-fonts/26050D_0_0.eot?#iefix") format("embedded-opentype"), url("https://s3.amazonaws.com/doc-center/public-fonts/26050D_0_0.woff") format("woff"), url("https://s3.amazonaws.com/doc-center/public-fonts/26050D_0_0.ttf") format("truetype");
 }
 
-@font-face {
-  font-family: "AauxNext-ThinItalic-Web";
-  src: url("https://s3.amazonaws.com/doc-center/public-fonts/26050D_3_0.eot");
-  src: url("https://s3.amazonaws.com/doc-center/public-fonts/26050D_3_0.eot?#iefix") format("embedded-opentype"), url("https://s3.amazonaws.com/doc-center/public-fonts/26050D_3_0.woff") format("woff"), url("https://s3.amazonaws.com/doc-center/public-fonts/26050D_3_0.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: "AauxNext-Medium-Web";
-  src: url("https://s3.amazonaws.com/doc-center/public-fonts/26050D_7_0.eot");
-  src: url("https://s3.amazonaws.com/doc-center/public-fonts/26050D_7_0.eot?#iefix") format("embedded-opentype"), url("https://s3.amazonaws.com/doc-center/public-fonts/26050D_7_0.woff") format("woff"), url("https://s3.amazonaws.com/doc-center/public-fonts/26050D_7_0.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: "AauxNext-Regular-Web";
-  src: url("https://s3.amazonaws.com/doc-center/public-fonts/26050D_A_0.eot");
-  src: url("https://s3.amazonaws.com/doc-center/public-fonts/26050D_A_0.eot?#iefix") format("embedded-opentype"), url("https://s3.amazonaws.com/doc-center/public-fonts/26050D_A_0.woff") format("woff"), url("https://s3.amazonaws.com/doc-center/public-fonts/26050D_A_0.ttf") format("truetype");
+@font-face { 
+  font-family: "AauxNext-Medium-Web";  
+  src: url("https://s3.amazonaws.com/doc-center/public-fonts/26050D_7_0.eot"); 
+  src: url("https://s3.amazonaws.com/doc-center/public-fonts/26050D_7_0.eot?#iefix") format("embedded-opentype"), url("https://s3.amazonaws.com/doc-center/public-fonts/26050D_7_0.woff") format("woff"), url("https://s3.amazonaws.com/doc-center/public-fonts/26050D_7_0.ttf") format("truetype"); 
 }
 
 ///////////////////////////////////////////////////////////////////////////////

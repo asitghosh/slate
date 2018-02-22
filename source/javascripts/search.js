@@ -1,6 +1,7 @@
 $(document).ready(function() {
 
 	var container = " ";
+	var radioClicked = 0;
 	var searchClass = $('.search-result-title');
 	var responsiveBreakPoint = 1073;
 	getUrlParameter();
@@ -24,11 +25,7 @@ $(document).ready(function() {
 
 		var input = $('#search-val').val();
 
-		if (input.length > 0) {
-			$('.header-search-result').addClass('search-val-hover-result');
-		} else if ((input.length == 0) && $('.header-search-result').hasClass('search-val-hover-result')) {
-			$('.header-search-result').removeClass('search-val-hover-result');
-		}
+		addClassToSearchBar(input);
 
 		if (e.keyCode == 13 && input.length > 0) {
 			window.location.href = "searchPage.html?search=" + input;
@@ -43,11 +40,7 @@ $(document).ready(function() {
 
 		$('html head').find('title').text(input + " - AppDirect Search");
 
-		if (input.length > 0) {
-			$('.header-search-result').addClass('search-val-hover-result');
-		} else if ((input.length == 0) && $('.header-search-result').hasClass('search-val-hover-result')) {
-			$('.header-search-result').removeClass('search-val-hover-result');
-		}
+		addClassToSearchBar(input);
 
 		$('.search-result-title').empty();
 		$('.search-image').css('display', 'block');
@@ -78,6 +71,15 @@ $(document).ready(function() {
 				$('.search-filter-mobile').css('display', 'flex');
 			}
 		});
+	}
+
+	function addClassToSearchBar(input) {
+
+		if (input.length > 0) {
+			$('.header-search-result').addClass('search-val-hover-result');
+		} else if ((input.length == 0) && $('.header-search-result').hasClass('search-val-hover-result')) {
+			$('.header-search-result').removeClass('search-val-hover-result');
+		}
 	}
 
 	function showResultToUser(getUrl, trimedTitle, desc) {
@@ -145,16 +147,19 @@ $(document).ready(function() {
 	}
 
 	$('.index_All').click(function() {
+		radioClicked = 1;
 		setTrueForCurrentCheck('all');
 		showContentFilterResult();
 	});
 
 	$('.index_api').click(function() {
+		radioClicked = 1;
 		setTrueForCurrentCheck('api');
 		showContentFilterResult();
 	});
 
 	$('.index_documentation').click(function() {
+		radioClicked = 1;
 		setTrueForCurrentCheck('documentation');
 		showContentFilterResult();
 	});
@@ -190,6 +195,9 @@ $(document).ready(function() {
 		}
 		highlightKeyword(input);
 		if (checkbox_Click['market'] === false && (checkbox_Click['billing'] === false) && (checkbox_Click['distribution'] === false) && (checkbox_Click['reseller'] === false) && (checkbox_Click['insights'] === false) && (checkbox_Click['wise']) === false) {
+			if (radioClicked === 0) {
+				radio_Click['all'] = true;
+			}
 			showContentFilterResult();
 		}
 	}
@@ -251,7 +259,7 @@ $(document).ready(function() {
 	function highlightKeyword(input) {
 		$(".search-highlight").mark(input, {
 			"element": "span",
-			"className": "highlight"
+			"className": "highlight-search"
 		});
 	}
 
