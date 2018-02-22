@@ -122,3 +122,9 @@ $(document).ready(function() {
 		$('.header-search-result').toggle();
 	});
 });
+
+document.onreadystatechange = function() {
+	if (document.readyState == 'complete') {
+		$('#load').css('display', 'none');
+	}
+}
