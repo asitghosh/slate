@@ -830,6 +830,7 @@ span.black {
   }
 
   .lang-selector {
+    position: fixed;
     z-index: 50;
     border-bottom: 5px solid $lang-select-active-bg;
   }
@@ -1408,26 +1409,30 @@ li.product-filter-options
 
 @font-face {
   font-family: "AauxNext-Regular-Web";
-  src: url("https://s3.amazonaws.com/doc-center/public-fonts/26050D_A_0.eot");
-  src: url("https://s3.amazonaws.com/doc-center/public-fonts/26050D_A_0.eot?#iefix") format("embedded-opentype"), url("https://s3.amazonaws.com/doc-center/public-fonts/26050D_A_0.woff") format("woff"), url("https://s3.amazonaws.com/doc-center/public-fonts/26050D_A_0.ttf") format("truetype");
+  src: url("../fonts/26050D_A_0.eot");
+  src: url("../fonts/26050D_A_0.ttf") format("truetype"),
+       url("../fonts/26050D_A_0.woff") format("woff");
 }
 
 @font-face {
   font-family: "AauxNext-Bold-Web";
-  src: url("https://s3.amazonaws.com/doc-center/public-fonts/26050D_0_0.eot");
-  src: url("https://s3.amazonaws.com/doc-center/public-fonts/26050D_0_0.eot?#iefix") format("embedded-opentype"), url("https://s3.amazonaws.com/doc-center/public-fonts/26050D_0_0.woff") format("woff"), url("https://s3.amazonaws.com/doc-center/public-fonts/26050D_0_0.ttf") format("truetype");
+  src: url("../fonts/26050D_0_0.eot");
+  src: url("../fonts/26050D_0_0.ttf") format("truetype"),
+       url("../fonts/26050D_0_0.woff") format("woff");
 }
 
 @font-face { 
   font-family: "AauxNext-Medium-Web";  
-  src: url("https://s3.amazonaws.com/doc-center/public-fonts/26050D_7_0.eot"); 
-  src: url("https://s3.amazonaws.com/doc-center/public-fonts/26050D_7_0.eot?#iefix") format("embedded-opentype"), url("https://s3.amazonaws.com/doc-center/public-fonts/26050D_7_0.woff") format("woff"), url("https://s3.amazonaws.com/doc-center/public-fonts/26050D_7_0.ttf") format("truetype"); 
+  src: url("../fonts/26050D_7_0.eot"); 
+  src: url("../fonts/26050D_7_0.ttf") format("truetype"),
+       url("../fonts/26050D_7_0.woff") format("woff"); 
 }
 
 @font-face {
   font-family: "AauxNext-Light-Web";
-  src: url("https://s3.amazonaws.com/doc-center/public-fonts/26050D_1_0.eot");
-  src: url("https://s3.amazonaws.com/doc-center/public-fonts/26050D_1_0.eot?#iefix") format("embedded-opentype"), url("https://s3.amazonaws.com/doc-center/public-fonts/26050D_1_0.woff") format("woff"), url("https://s3.amazonaws.com/doc-center/public-fonts/26050D_1_0.ttf") format("truetype");
+  src: url("../fonts/26050D_1_0.eot");
+  src: url("../fonts/26050D_1_0.ttf") format("truetype"),
+       url("../fonts/26050D_1_0.woff") format("woff");
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -1472,6 +1477,11 @@ li.product-filter-options
 
   #nav-button span {
     top: 62px !important;
+  }
+}
+@media (max-width: 1150px) {
+  .lang-selector{
+    width: auto !important;
   }
 }
 
