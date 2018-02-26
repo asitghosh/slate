@@ -830,7 +830,7 @@ span.black {
   }
 
   .lang-selector {
-    position: absolute;
+    position: fixed;
     z-index: 50;
     border-bottom: 5px solid $lang-select-active-bg;
   }
@@ -1431,8 +1431,8 @@ li.product-filter-options
 @font-face {
   font-family: "AauxNext-Light-Web";
   src: url("../fonts/26050D_1_0.eot");
-  src: url("../fonts/26050D_1_0.woff") format("woff"),
-       url("../fonts/26050D_1_0.ttf") format("truetype");
+  src: url("../fonts/26050D_1_0.ttf") format("truetype"),
+       url("../fonts/26050D_1_0.woff") format("woff");
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -1477,6 +1477,11 @@ li.product-filter-options
 
   #nav-button span {
     top: 62px !important;
+  }
+}
+@media (max-width: 1150px) {
+  .lang-selector{
+    width: auto !important;
   }
 }
 
