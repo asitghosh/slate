@@ -98,24 +98,68 @@
 
 <div class="search-wrapper">
   <h1 class="search-heading"> </h1>
+  <div class="search-results">
+      <div class="show-filters">
+          <span>Filter</span>
+      </div>
+      <div class="search-result-title">  
+      </div>
+  <div class="mobile-filters">
+      <div class="back-to-results">
+          <a>< </a>Back to Results
+      </div>
       <div class="search-filter-mobile">
           <h4 class="search-filter-heading"> Content Type </h4>
         <li class="search-filter-options">
-            <input checked="checked" class="index_All" id="All_Mobile" name="index" type="radio">
+            <input class="index_All" id="All_Mobile" name="index_mobile" type="radio">
             <label for="All_Mobile">All</label>
         </li>
         <li class="search-filter-options">
-            <input class="index_api" name="index" type="radio" id="API_Mobile">
+            <input class="index_api" name="index_mobile" type="radio" id="API_Mobile">
             <label for="API_Mobile">API</label>
         </li>
         <li class="search-filter-options">
-            <input class="index_documentation" name="index" type="radio" id="Documentation_Mobile">
+            <input class="index_documentation" name="index_mobile" type="radio" id="Documentation_Mobile">
             <label for="Documentation_Mobile">Documentation</label>
         </li>
     </div>
-
-  <div class="search-results">
-      <div class="search-result-title">  
+        <div class="product-filter-mobile">
+          <h4 class="product-filter-heading">Product</h4>
+          <li class="product-filter-options">
+               <input class="index_appmarket" name="product" type="checkbox" id="AppMarket_Mobile">
+               <label for="AppMarket_Mobile">AppMarket</label>
+          </li>
+          <li class="product-filter-options">
+               <input class="index_appbilling" name="product" type="checkbox" id="AppBilling_Mobile">
+               <label for="AppBilling_Mobile">AppBilling</label>
+          </li>
+          <li class="product-filter-options">
+               <input class="index_appdistribution" name="product" type="checkbox" id="AppDistribution_Mobile">
+               <label for="AppDistribution_Mobile">AppDistribution</label>
+          </li>
+          <li class="product-filter-options">
+               <input class="index_appreseller" name="product" type="checkbox" id="AppReseller_Mobile">
+               <label for="AppReseller_Mobile">AppReseller</label>
+          </li>
+          <li class="product-filter-options">
+               <input class="index_appinsights" name="product" type="checkbox" id="AppInsights_Mobile">
+               <label for="AppInsights_Mobile">AppInsights</label>
+          </li>
+          <li class="product-filter-options">
+               <input class="index_appwise" name="product" type="checkbox" id="AppWise_Mobile">
+               <label for="AppWise_Mobile">AppWise</label>
+        </div>
+          <div class="sort-filter-mobile">
+            <h4 class="sort-filter-heading">Sort By Date</h4>
+          <li class="sort-filter-options">
+              <input class="index_new" name="index_date_mobile" type="radio" id="New_Mobile">
+              <label for="New_Mobile">Newest First</label>
+          </li>
+          <li class="sort-filter-options">
+              <input class="index_old" name="index_date_mobile" type="radio" id="Old_Mobile">
+              <label for="Old_Mobile">Oldest First</label>
+          </li>
+        </div>
   </div>
   <div class="filters">
       <div class="search-filter">
@@ -160,7 +204,18 @@
                <label for="AppWise">AppWise</label>
           </li>
        </div>
-      </div>
+        <div class="sort-filter">
+            <h4 class="sort-filter-heading">Sort By Date</h4>
+          <li class="sort-filter-options">
+              <input class="index_new" name="index_date" type="radio" id="New">
+              <label for="New">Newest First</label>
+          </li>
+          <li class="sort-filter-options">
+              <input class="index_old" name="index_date" type="radio" id="Old">
+              <label for="Old">Oldest First</label>
+          </li>
+        </div>
+     </div>
     </div>
 </div>
 
