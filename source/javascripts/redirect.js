@@ -1,4 +1,13 @@
 $(document).ready(function() {
+
+	var primaryHeaderWidth = 0;
+	primaryHeaderWidth = document.getElementById("header").offsetWidth;
+	$('#header').css('max-width', primaryHeaderWidth);
+	$(window).resize(function() {
+		primaryHeaderWidth = $(window).width();
+		$('#header').css('max-width', primaryHeaderWidth);
+	});
+
 	$('#search-val').keyup(function(e) {
 
 		var input = $('#search-val').val();
