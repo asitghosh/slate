@@ -425,9 +425,9 @@ $(document).ready(function() {
 		}
 
 		if (sort_Click['new'] === true) {
-			window.location.href = "searchPage.html?search=" + actualQuery + ' ' + 'sort:date asc';
-		} else if (sort_Click['old'] === true) {
 			window.location.href = "searchPage.html?search=" + actualQuery + ' ' + 'sort:date desc';
+		} else if (sort_Click['old'] === true) {
+			window.location.href = "searchPage.html?search=" + actualQuery + ' ' + 'sort:date asc';
 		}
 	}
 
