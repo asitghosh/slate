@@ -31,7 +31,6 @@ $(document).ready(function() {
 	$('#search-val').keyup(function(e) {
 
 		var input = $('#search-val').val();
-
 		addClassToSearchBar(input);
 
 		if (e.keyCode == 13 && input.length > 0) {
@@ -84,7 +83,7 @@ $(document).ready(function() {
 					showResultToUser(getUrl, trimedTitle, desc);
 				}
 			} else {
-				searchClass.append("<p>No results found for " + "'" + input + "'" + "</p>");
+				searchClass.append("<p class='no-result-message'>No results found for " + "'" + input + "'" + "</p>");
 			}
 			highlightKeyword(input);
 			$('.search-heading').append("Search Results for " + "'" + input + "'");
@@ -175,7 +174,6 @@ $(document).ready(function() {
 	}
 
 	function addClassToSearchBar(input) {
-
 		if (input.length > 0) {
 			$('.header-search-result').addClass('search-val-hover-result');
 		} else if ((input.length == 0) && $('.header-search-result').hasClass('search-val-hover-result')) {
@@ -188,7 +186,10 @@ $(document).ready(function() {
 		searchClass.append("<a class='search-title-append' href = " + getUrl + " target = '_blank'>" + "<p class='search-title-append-content'>" + trimedTitle + "</p>" + "</a>" + "<p class='search-highlight'>" + desc + "</p>");
 	}
 
-	function getTrimedTitles(title) {
+	function getTrimedTitles(title, input) {
+		if (title == undefined) {
+			searchClass.append("<p class='no-result-message'>No filtered results found for " + "'" + input + "'" + "</p>");
+		}
 		if (title.includes("AppWise") || title.includes("AppInsights") || title.includes("AppMarket") || title.includes("AppBilling")) {
 			title = trimApiTitles(title);
 		}
@@ -242,39 +243,44 @@ $(document).ready(function() {
 	});
 
 	function showContentFilterResult() {
+		var noResultFoundCheck = 0;
+
 		if (radio_Click['all'] === true) {
 			$('.search-result-title').empty();
 			var input = $('#search-val').val();
-
 			for (var i = 0; i < container.length; i++) {
 				var title = container[i].title;
-				var trimedTitle = getTrimedTitles(title);
+				var trimedTitle = getTrimedTitles(title, input);
 				var getUrl = container[i].url;
 				var desc = container[i].description.replace(new RegExp('\r?\n', 'g'), '<br />');
 				showResultToUser(getUrl, trimedTitle, desc);
+				noResultFoundCheck = 1;
 			}
 			highlightKeyword(input);
 
 		} else {
-
 			$('.search-result-title').empty();
 			var input = $('#search-val').val();
-
 			for (var i = 0; i < container.length; i++) {
 
 				var title = container[i].title;
-				var trimedTitle = getTrimedTitles(title);
+				var trimedTitle = getTrimedTitles(title, input);
 				var getUrl = container[i].url;
 				var desc = container[i].description.replace(new RegExp('\r?\n', 'g'), '<br />');
 
 				if (getUrl.indexOf("/api/") >= 0 && radio_Click['api'] === true) {
 					showResultToUser(getUrl, trimedTitle, desc);
+					noResultFoundCheck = 1;
 
 				} else if (getUrl.indexOf("/api/") == -1 && radio_Click['documentation'] === true) {
 					showResultToUser(getUrl, trimedTitle, desc);
+					noResultFoundCheck = 1;
 				}
 			}
 			highlightKeyword(input);
+		}
+		if (noResultFoundCheck == 0) {
+			searchClass.append("<p class='no-result-message'>No filtered results found for " + "'" + input + "'" + "</p>");
 		}
 		if ($("[name='product']:checked").length) {
 			showProductFilterResult();
@@ -316,33 +322,46 @@ $(document).ready(function() {
 	function showProductFilterResult() {
 		$('.search-result-title').empty();
 		var input = $('#search-val').val();
-
+		var noResultFoundCheck = 0;
 		for (var i = 0; i < container.length; i++) {
 
 			var title = container[i].title;
-			var trimedTitle = getTrimedTitles(title);
+			var trimedTitle = getTrimedTitles(title, input);
 			var getUrl = container[i].url;
 			var desc = container[i].description.replace(new RegExp('\r?\n', 'g'), '<br />');
 
 			if ((getUrl.indexOf("/appmarket/") >= 0 || (getUrl.indexOf("/appmarket.html") >= 0 && (!$('.index_documentation').is(':checked')))) && checkbox_Click['market'] === true && (!$('.index_api').is(':checked'))) {
 				showResultToUser(getUrl, trimedTitle, desc);
+				noResultFoundCheck = 1;
 			} else if (getUrl.indexOf("/appmarket.html") >= 0 && checkbox_Click['market'] === true && ($('.index_api').is(':checked'))) {
 				showResultToUser(getUrl, trimedTitle, desc);
+				noResultFoundCheck = 1;
 			} else if ((getUrl.indexOf("/appbilling/") >= 0 || (getUrl.indexOf("/appbilling.html") >= 0 && (!$('.index_documentation').is(':checked')))) && checkbox_Click['billing'] === true && (!$('.index_api').is(':checked'))) {
 				showResultToUser(getUrl, trimedTitle, desc);
+				noResultFoundCheck = 1;
 			} else if (getUrl.indexOf("/appbilling.html") >= 0 && checkbox_Click['billing'] === true && ($('.index_api').is(':checked'))) {
 				showResultToUser(getUrl, trimedTitle, desc);
+				noResultFoundCheck = 1;
 			} else if (getUrl.indexOf("/appdistrib/") >= 0 && checkbox_Click['distribution'] === true && (!$('.index_api').is(':checked'))) {
 				showResultToUser(getUrl, trimedTitle, desc);
+				noResultFoundCheck = 1;
 			} else if (getUrl.indexOf("/appreseller/") >= 0 && checkbox_Click['reseller'] === true && (!$('.index_api').is(':checked'))) {
 				showResultToUser(getUrl, trimedTitle, desc);
+				noResultFoundCheck = 1;
 			} else if (getUrl.indexOf("/appinsights.html") >= 0 && checkbox_Click['insights'] === true && (!$('.index_documentation').is(':checked'))) {
 				showResultToUser(getUrl, trimedTitle, desc);
+				noResultFoundCheck = 1;
 			} else if (getUrl.indexOf("/appwise.html") >= 0 && checkbox_Click['wise'] === true && (!$('.index_documentation').is(':checked'))) {
 				showResultToUser(getUrl, trimedTitle, desc);
+				noResultFoundCheck = 1;
 			}
 		}
+		if (noResultFoundCheck == 0) {
+			searchClass.append("<p class='no-result-message'>No filtered results found for " + "'" + input + "'" + "</p>");
+		}
+
 		highlightKeyword(input);
+
 		if (checkbox_Click['market'] === false && (checkbox_Click['billing'] === false) && (checkbox_Click['distribution'] === false) && (checkbox_Click['reseller'] === false) && (checkbox_Click['insights'] === false) && (checkbox_Click['wise']) === false) {
 			if (radioClicked === 0) {
 				radio_Click['all'] = true;
