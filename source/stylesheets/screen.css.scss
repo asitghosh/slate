@@ -1213,6 +1213,20 @@ input[type="checkbox"], input[type="radio"] {
   flex-direction: column;
 }
 
+.outer-div{
+  display: flex;
+  justify-content: space-between;
+}
+
+.clear-all-filters{
+  padding-top: 25px;
+  display: none;
+  font-weight: bold;
+  padding-right: 13px;
+  cursor: pointer;
+  font-family: Arial,Helvetica,sans-serif; 
+}
+
 .header-search-result {
   background: url(../images/magnifying_glass.png) 12px 8px no-repeat #ffffff !important;
 }
@@ -1340,7 +1354,6 @@ li.sort-filter-options {
 
 .search-heading {
   font: 2.4em/1.4em "AauxNext-Medium-Web",Arial,Helvetica,sans-serif;
-  margin: auto;
 }
 
 .search-filter input[type="radio"]:checked + label {
@@ -1573,10 +1586,6 @@ li.sort-filter-options {
     width: 83% !important;
   }
 
-  .search-filter-heading {
-    font-size: 13px;
-  }
-
   .topic-title {
     font-size: 13px;
   }
@@ -1592,24 +1601,41 @@ li.sort-filter-options {
     cursor: pointer;
   }
 
-  .back-to-results {
-    background-color: #fff;
-    top: 0;
-    padding-top: 70px;
-    width: 90%;
-    height: 100px;
-    z-index: 1;
-    border-bottom: 1px solid #e7e7e7;
-    position: fixed;
+  .back-to-results
+  {
     font-family: Arial,Helvetica,sans-serif;
     font-weight: bold;
     cursor: pointer;
   }
 
-  .back-to-results a {
+  .mobile-filters-outer-div{
+    background-color: #fff;
+    top: 0;
+    padding-top: 70px;
+    width: 90%;
+    height: 96px;
+    z-index: 1;
+    border-bottom: 1px solid #e7e7e7;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+  }
+
+ .back-to-results a{
     font-family: "AauxNext-Regular-Web",Arial,Helvetica,sans-serif;
     color: rgb(86, 86, 86);
     padding-right: 5px;
+  }
+
+  .clear-all-filters{
+    display: none !important;
+  }
+
+  .clear-all-filters-mobile{
+    font-weight: bold;
+    cursor: pointer;
+    font-family: Arial,Helvetica,sans-serif; 
+    display: none;
   }
 
   .product-filter {
@@ -1729,7 +1755,7 @@ li.sort-filter-options {
   }
 
   .search-filter-heading {
-    margin-top: 10px !important;
+    margin-top: 5px !important;
     font-size: 18px;
     font-family: "AauxNext-Regular-Web",Arial,Helvetica,sans-serif;
   }
@@ -1805,10 +1831,6 @@ li.sort-filter-options {
     border-bottom: 1px solid #e7e7e7;
     border-bottom-left-radius: 3px;
     border-bottom-right-radius: 3px;
-  }
-
-  .search-filter-heading {
-    margin-top: 7px;
   }
 
   .search-highlight {
@@ -2060,6 +2082,10 @@ li.sort-filter-options {
   }
 
   .show-filters {
+    display: none !important;
+  }
+
+  .clear-all-filters-mobile{
     display: none !important;
   }
 }
