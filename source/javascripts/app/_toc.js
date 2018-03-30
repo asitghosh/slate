@@ -130,12 +130,19 @@
 			}
 		}
 
-		$('a[href*="#"]').bind("click", function(e) {
-
+		$('a[href*="#"]').on("click", function(e) {
 			target = $(this).attr("href"); //Get the target
 			managePageScroll();
 			e.preventDefault();
 		});
+
+		$('.search').change(function() {
+			$('.search-results').find('a[href*="#"]').on("click", function(e) {
+				target = $(this).attr("href"); //Get the target
+				managePageScroll();
+				e.preventDefault();
+			});
+		})
 
 		function managePageScroll() {
 			if ($('body').hasClass('appmarket')) {
