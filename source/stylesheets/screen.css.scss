@@ -661,7 +661,8 @@ span.black {
       border-width: 0px 0px 1px 0;
       width: 170px;
       box-sizing: border-box;
-      margin-left: 15px;
+      margin-left: 20px;
+      display: inherit;
     }
 
     li {
@@ -2067,10 +2068,6 @@ li.sort-filter-options {
 
   .search-heading {
     display: block !important;
-  }
-
-  .search-results {
-    border-top: 1px solid #ddd !important;
   }
 
   .search-wrapper {
