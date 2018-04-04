@@ -102,5 +102,16 @@ pipeline {
                 }
              }
         }
+        
+        stage('Trigger build api-documentation') {
+            when {
+                expression {
+                    env.BRANCH_NAME == 'master'
+                }
+            }
+            steps {
+                build job: '/api-documentation-pipeline/master', wait: false
+            }
+        }
     }
 }
