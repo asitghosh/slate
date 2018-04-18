@@ -157,6 +157,9 @@
 			} else if ($('body').hasClass('appinsights')) {
 				var scrollToPosition = $(target).offset().top - document.getElementById('header').offsetHeight - document.getElementById('appinsights_second_nav').offsetHeight + 2
 
+			} else if ($('body').hasClass('appreseller')) {
+				var scrollToPosition = $(target).offset().top - document.getElementById('header').offsetHeight - document.getElementById('appreseller_second_nav').offsetHeight + 2
+
 			} else {
 				var scrollToPosition = $(target).offset().top - document.getElementById('header').offsetHeight - 51 + 2
 			}
