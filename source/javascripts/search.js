@@ -5,7 +5,6 @@ $(document).ready(function() {
 	var showFiltersClick = 1;
 	var searchClass = $('.search-result-title');
 	var responsiveBreakPoint = 1073;
-
 	var radio_Click = {
 		all: false,
 		api: false,
@@ -26,7 +25,6 @@ $(document).ready(function() {
 	getUrlParameter();
 	var query = getUrlParameter('search');
 	searchOnPageLoad(query);
-
 
 	$('#search-val').keyup(function(e) {
 
@@ -190,7 +188,7 @@ $(document).ready(function() {
 		if (title == undefined) {
 			searchClass.append("<p class='no-result-message'>No filtered results found for " + "'" + input + "'" + "</p>");
 		}
-		if (title.includes("AppWise") || title.includes("AppInsights") || title.includes("AppMarket") || title.includes("AppBilling")) {
+		if (title.includes("AppWise") || title.includes("AppInsights") || title.includes("AppMarket") || title.includes("AppBilling") || title.includes("AppReseller")) {
 			title = trimApiTitles(title);
 		}
 		return title;
@@ -353,7 +351,10 @@ $(document).ready(function() {
 			} else if (getUrl.indexOf("/appdistrib/") >= 0 && checkbox_Click['distribution'] === true && (!$('.index_api').is(':checked'))) {
 				showResultToUser(getUrl, trimedTitle, desc);
 				noResultFoundCheck = 1;
-			} else if (getUrl.indexOf("/appreseller/") >= 0 && checkbox_Click['reseller'] === true && (!$('.index_api').is(':checked'))) {
+			} else if ((getUrl.indexOf("/appreseller/") >= 0 || (getUrl.indexOf("/appreseller.html") >= 0 && (!$('.index_documentation').is(':checked')))) && checkbox_Click['reseller'] === true && (!$('.index_api').is(':checked'))) {
+				showResultToUser(getUrl, trimedTitle, desc);
+				noResultFoundCheck = 1;
+			} else if (getUrl.indexOf("/appreseller.html") >= 0 && checkbox_Click['reseller'] === true && ($('.index_api').is(':checked'))) {
 				showResultToUser(getUrl, trimedTitle, desc);
 				noResultFoundCheck = 1;
 			} else if (getUrl.indexOf("/appinsights.html") >= 0 && checkbox_Click['insights'] === true && (!$('.index_documentation').is(':checked'))) {
@@ -498,6 +499,8 @@ $(document).ready(function() {
 			searchClass.append("<p class='topic-title'>AppMarket API Reference</p>");
 		} else if (getUrl.indexOf("/api/appbilling.html") >= 0) {
 			searchClass.append("<p class='topic-title'>AppBilling API Reference</p>");
+		} else if (getUrl.indexOf("/api/appreseller.html") >= 0) {
+			searchClass.append("<p class='topic-title'>AppReseller API Reference</p>");
 		} else if (getUrl.indexOf("/api/appinsights.html") >= 0) {
 			searchClass.append("<p class='topic-title'>AppInsights API Reference</p>");
 		} else if (getUrl.indexOf("/api/appwise.html") >= 0) {
